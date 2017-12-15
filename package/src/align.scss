@@ -1,0 +1,31 @@
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+@each $align in (baseline, middle, top, bottom, text-top, text-bottom) {
+  .align-#{$align} {
+    vertical-align: $align !important;
+  }
+}
+
+@each $align in (center, left, right) {
+  .text-#{$align} {
+    text-align: $align !important;
+  }
+}
+
+.lh-1 {
+  line-height: 1;
+}
+
+.lh-1_25 {
+  line-height: 1.25;
+}
+
+.lh-1_5 {
+  line-height: 1.5;
+}

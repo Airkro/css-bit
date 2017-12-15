@@ -1,0 +1,27 @@
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+@each $size in (x-small, smaller, small, medium, larger, large, x-large, xx-large) {
+  .f-#{$size} {
+    font-size: $size !important;
+  }
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+.break-word {
+  word-wrap: break-word;
+}

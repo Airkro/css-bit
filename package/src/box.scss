@@ -1,0 +1,5 @@
+@each $type in (inline, block, inline-block, none) {
+  .d-#{$type} {
+    display: $type !important;
+  }
+}

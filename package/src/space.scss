@@ -1,0 +1,60 @@
+@for $s from 0 through 7 {
+  $size: ($s * 0.5) + rem !important;
+
+  @if $s >= 7 {
+    $s: auto;
+    $size: auto !important;
+  } @else {
+    .p-#{$s},
+    .px-#{$s},
+    .pl-#{$s} {
+      padding-left: $size;
+    }
+
+    .p-#{$s},
+    .px-#{$s},
+    .pr-#{$s} {
+      padding-right: $size;
+    }
+
+    .p-#{$s},
+    .py-#{$s},
+    .pt-#{$s} {
+      padding-top: $size;
+    }
+
+    .p-#{$s},
+    .py-#{$s},
+    .pb-#{$s} {
+      padding-bottom: $size;
+    }
+  }
+
+  .m-#{$s},
+  .mx-#{$s},
+  .ml-#{$s} {
+    margin-left: $size;
+  }
+
+  .m-#{$s},
+  .mx-#{$s},
+  .mr-#{$s} {
+    margin-right: $size;
+  }
+
+  .m-#{$s},
+  .my-#{$s},
+  .mt-#{$s} {
+    margin-top: $size;
+  }
+
+  .m-#{$s},
+  .my-#{$s},
+  .mb-#{$s} {
+    margin-bottom: $size;
+  }
+}
+
+.border-box {
+  box-sizing: border-box;
+}

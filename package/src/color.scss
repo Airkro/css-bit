@@ -1,0 +1,23 @@
+$color: (
+  grey: #888,
+  lightgrey: #aaa,
+  white: #fff
+);
+
+@each $name, $value in $color {
+  .color-#{$name} {
+    color: $value !important;
+  }
+}
+
+$bg-color: (
+  grey: #ddd,
+  lightgrey: #eee,
+  white: #fff
+);
+
+@each $name, $value in $bg-color {
+  .bg-#{$name} {
+    background-color: $value !important;
+  }
+}
