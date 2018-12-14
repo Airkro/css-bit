@@ -16,13 +16,13 @@
 
 @each $size in (100, 90, 75, 50, 25, 33.33333, 66.66667) {
   .w-#{round($size)} {
-    width: $size+% !important;
+    width: percentage($size/100) !important;
   }
 }
 
 @each $size in (100, 50) {
   .h-#{$size} {
-    height: $size+% !important;
+    height: percentage($size/100) !important;
   }
 }
 

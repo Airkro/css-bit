@@ -2,7 +2,7 @@
 
 Style for personal use
 
-[![npm version](https://badge.fury.io/js/css-bit.svg)](https://www.npmjs.com/package/css-bit)
+[![npm version](https://img.shields.io/npm/v/css-bit.svg)](https://www.npmjs.com/package/css-bit)
 
 ## Installation
 
@@ -19,15 +19,15 @@ yarn add css-bit
 Add following settings to your code:
 
 ```js
-import 'css-bit/dist/index.css';
+import "css-bit/dist/index.css";
 
 // or
 
-import 'css-bit/index.scss';
+import "css-bit/index.scss";
 
 // or
 
-import 'css-bit/src/align.scss';
+import "css-bit/src/align.scss";
 ```
 
 ## Tips

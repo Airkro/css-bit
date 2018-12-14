@@ -853,6 +853,7 @@
 
 .break-word {
   word-wrap: break-word;
+  word-break: break-all;
 }
 
 .o-auto {

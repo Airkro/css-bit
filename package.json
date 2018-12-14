@@ -1,16 +1,16 @@
 {
   "name": "css-bit-dev",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "license": "MIT",
   "devDependencies": {
     "ant-design-palettes": "^1.1.3",
-    "fs-extra": "^7.0.0",
+    "fs-extra": "^7.0.1",
     "lodash": "^4.17.11",
-    "node-sass": "^4.9.3"
+    "node-sass": "^4.11.0"
   },
   "optionalDependencies": {
     "prettier-stylelint": "^0.4.2",
-    "stylelint": "^9.5.0",
+    "stylelint": "^9.9.0",
     "stylelint-config-airkro": "^1.1.5"
   },
   "scripts": {
