@@ -58,5 +58,4 @@ typings/
 .env
 
 .cache
-dist/index.js
 yarn-error.log

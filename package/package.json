@@ -1,9 +1,12 @@
 {
   "name": "css-bit",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "license": "MIT",
   "description": "Stylesheet for personal use",
-  "author": "Eric Chen",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/airkro/css-bit"

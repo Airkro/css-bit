@@ -4,13 +4,13 @@
 
 @each $size in (25, 15) {
   .max-w-#{$size} {
-    max-width: $size+em !important;
+    max-width: $size + em !important;
   }
 }
 
 @each $size in (10, 5, 2) {
   .min-w-#{$size} {
-    min-width: $size+em !important;
+    min-width: $size + em !important;
   }
 }
 
@@ -28,13 +28,13 @@
 
 @each $size in (20, 12, 8, 7, 5, 3, 2) {
   .w-#{$size}rem {
-    width: $size+rem !important;
+    width: $size + rem !important;
   }
 }
 
 @each $size in (12, 10, 7, 3, 2) {
   .h-#{$size}rem {
-    height: $size+rem !important;
+    height: $size + rem !important;
   }
 }
 

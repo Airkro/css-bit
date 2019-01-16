@@ -12,7 +12,8 @@
   text-decoration: line-through;
 }
 
-@each $size in (x-small, smaller, small, medium, larger, large, x-large, xx-large) {
+@each $size
+  in (x-small, smaller, small, medium, larger, large, x-large, xx-large) {
   .f-#{$size} {
     font-size: $size !important;
   }

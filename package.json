@@ -1,21 +1,21 @@
 {
   "name": "css-bit-dev",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "license": "MIT",
   "devDependencies": {
-    "ant-design-palettes": "^1.1.3",
+    "@ant-design/colors": "^2.0.4",
     "fs-extra": "^7.0.1",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0"
   },
   "optionalDependencies": {
-    "prettier-stylelint": "^0.4.2",
-    "stylelint": "^9.9.0",
-    "stylelint-config-airkro": "^1.1.5"
+    "prettier": "^1.15.3",
+    "stylelint": "^9.10.0",
+    "stylelint-config-airkro": "^1.1.6"
   },
   "scripts": {
-    "prebuild": "stylelint package/src/**/*.{css,scss} --fix --s scss",
-    "build": "node-sass package/index.scss package/dist/index.css && node-sass package/reboot.scss package/dist/reboot.css",
-    "postbuild": "prettier-stylelint package/dist/*.css --write -q"
+    "prebuild": "prettier package/src/**/*.{css,scss} --write && stylelint package/src/**/*.{css,scss} --fix",
+    "build": "node-sass package/reboot.scss -o package/dist && node-sass package/index.scss -o package/dist",
+    "postbuild": "prettier package/dist/*.css --write && stylelint package/dist/*.css --fix"
   }
 }
