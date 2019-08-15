@@ -1,13 +1,13 @@
 @each $k in (auto, hidden, visible, scroll) {
-  .o-#{$k} {
+  .o-#{'' + $k} {
     overflow: $k;
   }
 
-  .ox-#{$k} {
+  .ox-#{'' + $k} {
     overflow-x: $k;
   }
 
-  .oy-#{$k} {
+  .oy-#{'' + $k} {
     overflow-y: $k;
   }
 }

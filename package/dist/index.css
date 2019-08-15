@@ -807,8 +807,8 @@
 
 .ellipsis {
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .strike {
@@ -852,8 +852,8 @@
 }
 
 .break-word {
-  word-wrap: break-word;
   word-break: break-all;
+  word-wrap: break-word;
 }
 
 .o-auto {

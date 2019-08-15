@@ -1,21 +1,63 @@
 {
   "name": "css-bit-dev",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "license": "MIT",
-  "devDependencies": {
-    "@ant-design/colors": "^2.0.4",
-    "fs-extra": "^7.0.1",
-    "lodash": "^4.17.11",
-    "node-sass": "^4.11.0"
-  },
-  "optionalDependencies": {
-    "prettier": "^1.15.3",
-    "stylelint": "^9.10.0",
-    "stylelint-config-airkro": "^1.1.6"
-  },
   "scripts": {
     "prebuild": "prettier package/src/**/*.{css,scss} --write && stylelint package/src/**/*.{css,scss} --fix",
     "build": "node-sass package/reboot.scss -o package/dist && node-sass package/index.scss -o package/dist",
-    "postbuild": "prettier package/dist/*.css --write && stylelint package/dist/*.css --fix"
+    "postbuild": "prettier package/dist/*.css --write && stylelint package/dist/*.css --fix",
+    "format": "lint-staged",
+    "generate": "node generate-antd-color"
+  },
+  "devDependencies": {
+    "@ant-design/colors": "^3.1.0",
+    "fs-extra": "^8.1.0",
+    "lodash": "^4.17.15",
+    "node-sass": "^4.12.0"
+  },
+  "optionalDependencies": {
+    "@nice-move/eslint-config-base": "^0.0.4",
+    "@nice-move/prettier-config": "^0.0.3",
+    "@nice-move/stylelint-config": "^0.0.8",
+    "eslint": "^5.16.0",
+    "husky": "^3.0.3",
+    "lint-staged": "^9.2.1",
+    "prettier": "^1.18.2",
+    "stylelint": "^10.1.0"
+  },
+  "engines": {
+    "node": "^10.16 || ^12"
+  },
+  "eslintConfig": {
+    "extends": "@nice-move/eslint-config-base",
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true
+        }
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": "@nice-move/prettier-config",
+  "stylelint": {
+    "extends": "@nice-move/stylelint-config",
+    "rules": {
+      "plugin/no-unsupported-browser-features": null,
+      "scss/selector-nest-combinators": null,
+      "scss/no-duplicate-dollar-variables": [
+        true,
+        {
+          "ignoreInsideAtRules": [
+            "if"
+          ]
+        }
+      ]
+    }
   }
 }

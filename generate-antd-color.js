@@ -3,15 +3,16 @@ const {
   presetPalettes: { grey, ...presetPalettes }
 } = require('@ant-design/colors');
 const { mapValues, reduce } = require('lodash');
-const { EOL } = require('os');
 const { outputFileSync } = require('fs-extra');
+
+const { EOL } = require('os');
 const { resolve } = require('path');
 
 const neutral = generate('#bfbfbf');
 const preset = { neutral, ...presetPalettes };
 
 function statement(colorName) {
-  return (value, index) => `$${colorName}-${index}: ${value};`;
+  return (value, index) => `$${colorName}-${index}: ${value} !default;`;
 }
 
 const data = reduce(

@@ -1,8 +1,7 @@
 @mixin lines($size, $color) {
-
   @each $value in (top, right, bottom, left) {
-    .line-#{$value} {
-      border-#{$value}: $size solid $color;
+    .line-#{'' + $value} {
+      border-#{""+$value}: $size solid $color;
     }
   }
 

@@ -1,6 +1,0 @@
-{
-  "extends": "stylelint-config-airkro",
-  "rules": {
-    "selector-class-pattern": null
-  }
-}

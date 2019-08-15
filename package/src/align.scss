@@ -7,13 +7,13 @@
 }
 
 @each $align in (baseline, middle, top, bottom, text-top, text-bottom) {
-  .align-#{$align} {
+  .align-#{'' + $align} {
     vertical-align: $align !important;
   }
 }
 
 @each $align in (center, left, right) {
-  .text-#{$align} {
+  .text-#{'' + $align} {
     text-align: $align !important;
   }
 }
