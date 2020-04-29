@@ -14,7 +14,7 @@
   }
 }
 
-@each $size in (100, 90, 75, 50, 25, 33.33333, 66.66667) {
+@each $size in (100, 90, 75, 50, 25, 33.333, 66.667) {
   .w-#{round($size)} {
     width: percentage($size/100) !important;
   }

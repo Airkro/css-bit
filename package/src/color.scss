@@ -1,13 +1,13 @@
 $color: (
   grey: #888,
   lightgrey: #aaa,
-  white: #fff
+  white: #fff,
 ) !default;
 
 $bg-color: (
   grey: #ddd,
   lightgrey: #eee,
-  white: #fff
+  white: #fff,
 ) !default;
 
 @each $name, $value in $color {
