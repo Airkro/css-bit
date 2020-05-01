@@ -7,7 +7,9 @@
     "build": "node-sass package/reboot.scss -o package/dist && node-sass package/index.scss -o package/dist",
     "postbuild": "prettier package/dist/*.css --write && stylelint package/dist/*.css --fix",
     "format": "nice-move lint",
-    "generate": "node generate-antd-color"
+    "generate": "node generate-antd-color",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "devDependencies": {
     "@ant-design/colors": "^4.0.0",
@@ -40,5 +42,9 @@
     "ignoreFiles": [
       "**/dist/*.*"
     ]
+  },
+  "snyk": true,
+  "dependencies": {
+    "snyk": "^1.316.1"
   }
 }
