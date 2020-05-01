@@ -1,0 +1,50 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - '@nice-move/cli > lodash':
+        patched: '2020-05-01T08:24:54.300Z'
+    - eslint > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - node-sass > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - stylelint > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - '@nice-move/eslint-config-base > eslint-plugin-unicorn > lodash':
+        patched: '2020-05-01T08:24:54.300Z'
+    - '@nice-move/stylelint-config > stylelint-order > lodash':
+        patched: '2020-05-01T08:24:54.300Z'
+    - '@nice-move/stylelint-config > stylelint-scss > lodash':
+        patched: '2020-05-01T08:24:54.300Z'
+    - eslint > inquirer > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - eslint > table > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - node-sass > sass-graph > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - stylelint > postcss-reporter > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - stylelint > table > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - '@nice-move/stylelint-config > stylelint-order > postcss-sorting > lodash':
+        patched: '2020-05-01T08:24:54.300Z'
+    - node-sass > gaze > globule > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-01T08:24:54.300Z'
