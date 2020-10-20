@@ -1,6 +1,6 @@
 {
   "name": "css-bit-dev",
-  "version": "0.0.32",
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "prebuild": "prettier package/src/**/*.{css,scss} --write && stylelint package/src/**/*.{css,scss} --fix",
@@ -11,17 +11,17 @@
   },
   "devDependencies": {
     "@ant-design/colors": "^4.0.5",
-    "@nice-move/cli": "^0.5.0",
-    "@nice-move/eslint-config-base": "^0.3.11",
+    "@nice-move/cli": "^0.5.1",
+    "@nice-move/eslint-config-base": "^0.3.14",
     "@nice-move/prettier-config": "^0.3.2",
-    "@nice-move/stylelint-config": "^0.4.1",
+    "@nice-move/stylelint-config": "^0.4.2",
     "eslint": "^6.8.0",
     "fs-chain": "^1.4.1",
     "husky": "^4.3.0",
     "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
-    "prettier": "^2.1.1",
-    "stylelint": "^13.7.1"
+    "prettier": "^2.1.2",
+    "stylelint": "^13.7.2"
   },
   "engines": {
     "node": "^12.18"

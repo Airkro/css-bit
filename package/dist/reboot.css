@@ -5,9 +5,9 @@ html {
 
 body {
   margin: 0;
-  font: 1rem/1.25 -apple-system, BlinkMacSystemFont, MicroSoft YaHei UI,
-    MicroSoft YaHei, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font: 1rem/1.25 -apple-system, BlinkMacSystemFont, 'MicroSoft YaHei UI',
+    'MicroSoft YaHei', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 a {

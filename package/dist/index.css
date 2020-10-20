@@ -876,6 +876,10 @@
   word-wrap: break-word;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .o-auto {
   overflow: auto;
 }

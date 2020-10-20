@@ -137,7 +137,7 @@
     "@babel/traverse" "^7.9.0"
     "@babel/types" "^7.9.0"
 
-"@babel/highlight@^7.0.0", "@babel/highlight@^7.8.3":
+"@babel/highlight@^7.8.3":
   version "7.9.0"
   resolved "https://registry.npm.taobao.org/@babel/highlight/download/@babel/highlight-7.9.0.tgz#4e9b45ccb82b79607271b2979ad82c7b68163079"
   integrity sha1-TptFzLgreWBycbKXmtgse2gWMHk=
@@ -184,10 +184,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@nice-move/cli@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.npm.taobao.org/@nice-move/cli/download/@nice-move/cli-0.5.0.tgz#e3ea0122b3f235674e7a10e6f5127b4b2dcd46ae"
-  integrity sha1-4+oBIrPyNWdOehDm9RJ7Sy3NRq4=
+"@nice-move/cli@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.npm.taobao.org/@nice-move/cli/download/@nice-move/cli-0.5.1.tgz#301c26168b29a912f06e6fb97c14685b6cf49151"
+  integrity sha1-MBwmFospqRLwbm+5fBRoW2z0kVE=
   dependencies:
     centra "^2.4.2"
     chalk "^4.1.0"
@@ -196,7 +196,7 @@
     fs-chain "^1.4.1"
     git-username "^1.0.0"
     is-there "^4.5.1"
-    lint-staged "^10.3.0"
+    lint-staged "^10.4.0"
     lodash "^4.17.20"
     micromustache "^8.0.3"
     ora "^5.1.0"
@@ -204,15 +204,15 @@
     replace-in-file "^6.1.0"
     yarn-deduplicate "^3.0.0"
 
-"@nice-move/eslint-config-base@^0.3.11":
-  version "0.3.11"
-  resolved "https://registry.npm.taobao.org/@nice-move/eslint-config-base/download/@nice-move/eslint-config-base-0.3.11.tgz#d726a1c70636c08284accca979ffdab972e654a2"
-  integrity sha1-1yahxwY2wIKErMypef/auXLmVKI=
+"@nice-move/eslint-config-base@^0.3.14":
+  version "0.3.14"
+  resolved "https://registry.npm.taobao.org/@nice-move/eslint-config-base/download/@nice-move/eslint-config-base-0.3.14.tgz#07aef59f99f6f9865495c2cb6df94c55244572c9"
+  integrity sha1-B671n5n2+YZUlcLLbflMVSRFcsk=
   dependencies:
     eslint-config-airbnb-base "^14.2.0"
-    eslint-config-prettier "^6.11.0"
+    eslint-config-prettier "^6.12.0"
     eslint-plugin-html "^6.1.0"
-    eslint-plugin-import "^2.22.0"
+    eslint-plugin-import "^2.22.1"
     eslint-plugin-markdown "^2.0.0-rc.0"
     eslint-plugin-node "^11.1.0"
     eslint-plugin-promise "^4.2.1"
@@ -238,10 +238,10 @@
     npm-normalize-package-bin "^1.0.1"
     prettier-package-json "^2.1.3"
 
-"@nice-move/stylelint-config@^0.4.1":
-  version "0.4.0"
-  resolved "https://registry.npm.taobao.org/@nice-move/stylelint-config/download/@nice-move/stylelint-config-0.4.0.tgz#e520a5710f3ef01daf505c29e2e2e76a79697944"
-  integrity sha1-5SClcQ8+8B2vUFwp4uLnanlpeUQ=
+"@nice-move/stylelint-config@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.npm.taobao.org/@nice-move/stylelint-config/download/@nice-move/stylelint-config-0.4.2.tgz#8cd8272d8caa201bc9a31cde5d959e4f81fb1900"
+  integrity sha1-jNgnLYyqIBvJoxzeXZWeT4H7GQA=
   dependencies:
     fs-chain "^1.4.1"
     stylelint-config-css-modules "^2.2.0"
@@ -1215,14 +1215,14 @@ eslint-config-airbnb-base@^14.2.0:
     object.assign "^4.1.0"
     object.entries "^1.1.2"
 
-eslint-config-prettier@^6.11.0:
-  version "6.11.0"
-  resolved "https://registry.npm.taobao.org/eslint-config-prettier/download/eslint-config-prettier-6.11.0.tgz#f6d2238c1290d01c859a8b5c1f7d352a0b0da8b1"
-  integrity sha1-9tIjjBKQ0ByFmotcH301KgsNqLE=
+eslint-config-prettier@^6.12.0:
+  version "6.13.0"
+  resolved "https://registry.npm.taobao.org/eslint-config-prettier/download/eslint-config-prettier-6.13.0.tgz#207d88796b5624e5bb815bbbdfc5891ceb9ebffa"
+  integrity sha1-IH2IeWtWJOW7gVu738WJHOuev/o=
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-import-resolver-node@^0.3.3:
+eslint-import-resolver-node@^0.3.4:
   version "0.3.4"
   resolved "https://registry.npm.taobao.org/eslint-import-resolver-node/download/eslint-import-resolver-node-0.3.4.tgz#85ffa81942c25012d8231096ddf679c03042c717"
   integrity sha1-hf+oGULCUBLYIxCW3fZ5wDBCxxc=
@@ -1253,17 +1253,17 @@ eslint-plugin-html@^6.1.0:
   dependencies:
     htmlparser2 "^4.1.0"
 
-eslint-plugin-import@^2.22.0:
-  version "2.22.0"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-import/download/eslint-plugin-import-2.22.0.tgz#92f7736fe1fde3e2de77623c838dd992ff5ffb7e"
-  integrity sha1-kvdzb+H94+Led2I8g43Zkv9f+34=
+eslint-plugin-import@^2.22.1:
+  version "2.22.1"
+  resolved "https://registry.npm.taobao.org/eslint-plugin-import/download/eslint-plugin-import-2.22.1.tgz#0896c7e6a0cf44109a2d97b95903c2bb689d7702"
+  integrity sha1-CJbH5qDPRBCaLZe5WQPCu2iddwI=
   dependencies:
     array-includes "^3.1.1"
     array.prototype.flat "^1.2.3"
     contains-path "^0.1.0"
     debug "^2.6.9"
     doctrine "1.5.0"
-    eslint-import-resolver-node "^0.3.3"
+    eslint-import-resolver-node "^0.3.4"
     eslint-module-utils "^2.6.0"
     has "^1.0.3"
     minimatch "^3.0.4"
@@ -1484,11 +1484,6 @@ extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.npm.taobao.org/extsprintf/download/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
-
-fast-deep-equal@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npm.taobao.org/fast-deep-equal/download/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
-  integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
 
 fast-deep-equal@^3.1.1:
   version "3.1.1"
@@ -2097,7 +2092,7 @@ is-buffer@^2.0.0:
   resolved "https://registry.npm.taobao.org/is-buffer/download/is-buffer-2.0.3.tgz#4ecf3fcf749cbd1e472689e109ac66261a25e725"
   integrity sha1-Ts8/z3ScvR5HJonhCaxmJhol5yU=
 
-is-callable@^1.1.4, is-callable@^1.1.5, is-callable@^1.2.0:
+is-callable@^1.1.4, is-callable@^1.2.0:
   version "1.2.1"
   resolved "https://registry.npm.taobao.org/is-callable/download/is-callable-1.2.1.tgz#4d1e21a4f437509d25ce55f8184350771421c96d"
   integrity sha1-TR4hpPQ3UJ0lzlX4GENQdxQhyW0=
@@ -2183,7 +2178,7 @@ is-plain-obj@^2.0.0:
   resolved "https://registry.npm.taobao.org/is-plain-obj/download/is-plain-obj-2.1.0.tgz#45e42e37fccf1f40da8e5f76ee21515840c09287"
   integrity sha1-ReQuN/zPH0Dajl927iFRWEDAkoc=
 
-is-regex@^1.0.5, is-regex@^1.1.0:
+is-regex@^1.1.0:
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/is-regex/download/is-regex-1.1.1.tgz#c6f98aacc546f6cec5468a07b7b153ab564a57b9"
   integrity sha1-xvmKrMVG9s7FRooHt7FTq1ZKV7k=
@@ -2390,10 +2385,10 @@ linguist-languages@^7.9.0:
   resolved "https://registry.npm.taobao.org/linguist-languages/download/linguist-languages-7.11.0.tgz#c28bbbbcc620cf612ff96154402a80be027832a2"
   integrity sha1-wou7vMYgz2Ev+WFUQCqAvgJ4MqI=
 
-lint-staged@^10.3.0:
-  version "10.3.0"
-  resolved "https://registry.npm.taobao.org/lint-staged/download/lint-staged-10.3.0.tgz#388c3d440590c45c339e7163f669ea69ae90b1e0"
-  integrity sha1-OIw9RAWQxFwznnFj9mnqaa6QseA=
+lint-staged@^10.4.0:
+  version "10.4.2"
+  resolved "https://registry.npm.taobao.org/lint-staged/download/lint-staged-10.4.2.tgz#9fee4635c4b5ddb845746f237c6d43494ccd21c1"
+  integrity sha1-n+5GNcS13bhFdG8jfG1DSUzNIcE=
   dependencies:
     chalk "^4.1.0"
     cli-truncate "^2.1.0"
@@ -3315,10 +3310,10 @@ prettier-plugin-toml@^0.3.1:
     "@toml-tools/parser" "^0.3.1"
     prettier "^1.16.0"
 
-prettier@>=1.10, prettier@>=2.0, prettier@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.npm.taobao.org/prettier/download/prettier-2.1.1.tgz#d9485dd5e499daa6cb547023b87a6cf51bee37d6"
-  integrity sha1-2Uhd1eSZ2qbLVHAjuHps9RvuN9Y=
+prettier@>=1.10, prettier@>=2.0, prettier@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.npm.taobao.org/prettier/download/prettier-2.1.2.tgz#3050700dae2e4c8b67c4c3f666cdb8af405e1ce5"
+  integrity sha1-MFBwDa4uTItnxMP2Zs24r0BeHOU=
 
 prettier@^1.16.0:
   version "1.18.2"
@@ -3962,7 +3957,7 @@ string-width@^4.1.0, string-width@^4.2.0:
     is-fullwidth-code-point "^3.0.0"
     strip-ansi "^6.0.0"
 
-string.prototype.trimend@^1.0.0, string.prototype.trimend@^1.0.1:
+string.prototype.trimend@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/string.prototype.trimend/download/string.prototype.trimend-1.0.1.tgz#85812a6b847ac002270f5808146064c995fb6913"
   integrity sha1-hYEqa4R6wAInD1gIFGBkyZX7aRM=
@@ -3970,25 +3965,7 @@ string.prototype.trimend@^1.0.0, string.prototype.trimend@^1.0.1:
     define-properties "^1.1.3"
     es-abstract "^1.17.5"
 
-string.prototype.trimleft@^2.1.1:
-  version "2.1.2"
-  resolved "https://registry.npm.taobao.org/string.prototype.trimleft/download/string.prototype.trimleft-2.1.2.tgz#4408aa2e5d6ddd0c9a80739b087fbc067c03b3cc"
-  integrity sha1-RAiqLl1t3QyagHObCH+8BnwDs8w=
-  dependencies:
-    define-properties "^1.1.3"
-    es-abstract "^1.17.5"
-    string.prototype.trimstart "^1.0.0"
-
-string.prototype.trimright@^2.1.1:
-  version "2.1.2"
-  resolved "https://registry.npm.taobao.org/string.prototype.trimright/download/string.prototype.trimright-2.1.2.tgz#c76f1cef30f21bbad8afeb8db1511496cfb0f2a3"
-  integrity sha1-x28c7zDyG7rYr+uNsVEUls+w8qM=
-  dependencies:
-    define-properties "^1.1.3"
-    es-abstract "^1.17.5"
-    string.prototype.trimend "^1.0.0"
-
-string.prototype.trimstart@^1.0.0, string.prototype.trimstart@^1.0.1:
+string.prototype.trimstart@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/string.prototype.trimstart/download/string.prototype.trimstart-1.0.1.tgz#14af6d9f34b053f7cfc89b72f8f2ee14b9039a54"
   integrity sha1-FK9tnzSwU/fPyJty+PLuFLkDmlQ=
@@ -4148,10 +4125,10 @@ stylelint-scss@^3.18.0:
     postcss-selector-parser "^6.0.2"
     postcss-value-parser "^4.1.0"
 
-stylelint@^13.7.1:
-  version "13.7.1"
-  resolved "https://registry.npm.taobao.org/stylelint/download/stylelint-13.7.1.tgz#bee97ee78d778a3f1dbe3f7397b76414973e263e"
-  integrity sha1-vul+5413ij8dvj9zl7dkFJc+Jj4=
+stylelint@^13.7.2:
+  version "13.7.2"
+  resolved "https://registry.npm.taobao.org/stylelint/download/stylelint-13.7.2.tgz#6f3c58eea4077680ed0ceb0d064b22b100970486"
+  integrity sha1-bzxY7qQHdoDtDOsNBksisQCXBIY=
   dependencies:
     "@stylelint/postcss-css-in-js" "^0.37.2"
     "@stylelint/postcss-markdown" "^0.36.1"
@@ -4386,11 +4363,6 @@ type-fest@^0.13.1:
   version "0.13.1"
   resolved "https://registry.npm.taobao.org/type-fest/download/type-fest-0.13.1.tgz#0172cb5bce80b0bd542ea348db50c7e21834d934"
   integrity sha1-AXLLW86AsL1ULqNI21DH4hg02TQ=
-
-type-fest@^0.5.2:
-  version "0.5.2"
-  resolved "https://registry.npm.taobao.org/type-fest/download/type-fest-0.5.2.tgz#d6ef42a0356c6cd45f49485c3b6281fc148e48a2"
-  integrity sha1-1u9CoDVsbNRfSUhcO2KB/BSOSKI=
 
 type-fest@^0.6.0:
   version "0.6.0"
@@ -4731,7 +4703,7 @@ yargs-parser@^13.1.2:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
 
-yargs-parser@^18.1.1, yargs-parser@^18.1.2, yargs-parser@^18.1.3:
+yargs-parser@^18.1.2, yargs-parser@^18.1.3:
   version "18.1.3"
   resolved "https://registry.npm.taobao.org/yargs-parser/download/yargs-parser-18.1.3.tgz#be68c4975c6b2abf469236b0c870362fab09a7b0"
   integrity sha1-vmjEl1xrKr9GkjawyHA2L6sJp7A=
