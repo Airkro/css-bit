@@ -1,6 +1,6 @@
 {
   "name": "css-bit",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Stylesheet for personal use",
   "license": "MIT",
   "author": {
@@ -16,10 +16,10 @@
     "url": "https://github.com/airkro/css-bit/issues"
   },
   "files": [
-    "dist/*"
+    "dist"
   ],
   "scripts": {
-    "generate": "node config/generate.cjs",
+    "generate": "node config/generate.mjs",
     "lint": "nice-move lint",
     "prepare": "git config core.hooksPath .hooks"
   },
@@ -32,7 +32,7 @@
     "@nice-move/stylelint-config": "^0.5.8",
     "commitlint": "^12.1.4",
     "eslint": "^7.31.0",
-    "fs-chain": "^5.2.0",
+    "fs-chain": "^8.1.0",
     "garou": "^0.1.37",
     "prettier": "^2.3.2",
     "stylelint": "^13.13.1"

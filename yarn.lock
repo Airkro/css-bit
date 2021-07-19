@@ -1995,14 +1995,6 @@ fs-chain@8.0.1:
     chalk "^4.1.1"
     fs-extra "^10.0.0"
 
-fs-chain@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.npm.taobao.org/fs-chain/download/fs-chain-5.2.0.tgz#e302651ad7182c9ba378a3e1d85e47aa445f6886"
-  integrity sha1-4wJlGtcYLJujeKPh2F5HqkRfaIY=
-  dependencies:
-    chalk "^4.1.0"
-    fs-extra "^9.1.0"
-
 fs-chain@^8.0.1, fs-chain@^8.1.0:
   version "8.1.0"
   resolved "https://mirrors.cloud.tencent.com/npm/fs-chain/-/fs-chain-8.1.0.tgz#32c377f4c97cbf7b2cc38c32884aaabe786781b8"
@@ -2020,7 +2012,7 @@ fs-extra@^10.0.0:
     jsonfile "^6.0.1"
     universalify "^2.0.0"
 
-fs-extra@^9.0.0, fs-extra@^9.1.0:
+fs-extra@^9.0.0:
   version "9.1.0"
   resolved "https://registry.npm.taobao.org/fs-extra/download/fs-extra-9.1.0.tgz#5954460c764a8da2094ba3554bf839e6b9a7c86d"
   integrity sha1-WVRGDHZKjaIJS6NVS/g55rmnyG0=

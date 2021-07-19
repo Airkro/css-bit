@@ -1,23 +1,13 @@
-'use strict';
+import { presetPalettes } from '@ant-design/colors';
+import { Json, Text } from 'fs-chain';
 
-const { Text, Json } = require('fs-chain');
-const {
-  generate,
-  presetPalettes: { grey, ...presetPalettes },
-} = require('@ant-design/colors');
-
-const neutral = generate('#bfbfbf');
-
-const all = Object.entries({
-  neutral,
-  ...presetPalettes,
-}).map(([colorName, colors]) => [
+const all = Object.entries(presetPalettes).map(([colorName, colors]) => [
   colorName,
   colors.map((value, index) => [`${colorName}-${index}`, value]),
 ]);
 
 new Text()
-  .handle(() =>
+  .onDone(() =>
     all
       .map(([colorName, colors]) =>
         [
@@ -27,13 +17,13 @@ new Text()
       )
       .join('\n\n'),
   )
-  .output('~dist/antd-color.scss')
+  .output('dist/antd-color.scss')
   .logger('Generate antd colors variables');
 
 new Json()
-  .handle(() =>
+  .onDone(() =>
     Object.fromEntries(Object.values(Object.fromEntries(all)).flat()),
   )
   .config({ pretty: true })
-  .output('~dist/antd-color.json')
+  .output('dist/antd-color.json')
   .logger('Generate antd colors map');

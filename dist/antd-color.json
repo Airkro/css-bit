@@ -1,14 +1,4 @@
 {
-  "neutral-0": "#ffffff",
-  "neutral-1": "#f2f2f2",
-  "neutral-2": "#e6e6e6",
-  "neutral-3": "#d9d9d9",
-  "neutral-4": "#cccccc",
-  "neutral-5": "#bfbfbf",
-  "neutral-6": "#999999",
-  "neutral-7": "#737373",
-  "neutral-8": "#4d4d4d",
-  "neutral-9": "#262626",
   "red-0": "#fff1f0",
   "red-1": "#ffccc7",
   "red-2": "#ffa39e",
@@ -128,5 +118,15 @@
   "magenta-6": "#c41d7f",
   "magenta-7": "#9e1068",
   "magenta-8": "#780650",
-  "magenta-9": "#520339"
+  "magenta-9": "#520339",
+  "grey-0": "#a6a6a6",
+  "grey-1": "#999999",
+  "grey-2": "#8c8c8c",
+  "grey-3": "#808080",
+  "grey-4": "#737373",
+  "grey-5": "#666666",
+  "grey-6": "#404040",
+  "grey-7": "#1a1a1a",
+  "grey-8": "#000000",
+  "grey-9": "#000000"
 }
