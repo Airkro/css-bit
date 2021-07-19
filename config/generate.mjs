@@ -1,5 +1,5 @@
 import { presetPalettes } from '@ant-design/colors';
-import { Json, Text } from 'fs-chain';
+import { Text } from 'fs-chain';
 
 const all = Object.entries(presetPalettes).map(([colorName, colors]) => [
   colorName,
@@ -19,11 +19,3 @@ new Text()
   )
   .output('dist/antd-color.scss')
   .logger('Generate antd colors variables');
-
-new Json()
-  .onDone(() =>
-    Object.fromEntries(Object.values(Object.fromEntries(all)).flat()),
-  )
-  .config({ pretty: true })
-  .output('dist/antd-color.json')
-  .logger('Generate antd colors map');

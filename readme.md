@@ -20,11 +20,9 @@ npm install css-bit --save
 
 ## Usage
 
-Add following settings to your code:
-
 ```scss
-@import 'css-bit/reboot.css';
-@import 'css-bit/antd-color.scss';
+@import 'css-bit/dist/reboot.css';
+@import 'css-bit/dist/antd-color.scss';
 ```
 
 ## Tips
