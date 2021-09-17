@@ -17,5 +17,5 @@ new Text()
       )
       .join('\n\n'),
   )
-  .output('dist/antd-color.scss')
+  .output('~css-bit/dist/antd-color.scss')
   .logger('Generate antd colors variables');

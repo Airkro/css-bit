@@ -1,0 +1,38 @@
+{
+  "name": "@css-bit/tailwind-smart-config",
+  "version": "0.0.0",
+  "description": "Smart tailwind configuration modifier",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
+  "keywords": [
+    "config",
+    "css",
+    "style",
+    "tailwind",
+    "tailwindcss",
+    "utils"
+  ],
+  "homepage": "https://github.com/airkro/css-bit/tree/master/packages/tailwind-smart-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airkro/css-bit.git",
+    "directory": "packages/tailwind-smart-config"
+  },
+  "bugs": {
+    "url": "https://github.com/airkro/css-bit/issues"
+  },
+  "main": "index.cjs",
+  "peerDependencies": {
+    "tailwindcss": "^2.2.15"
+  },
+  "engines": {
+    "node": "^12.22.0 || ^14.17.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "@css-bit/tailwind-antd-color",
+  "version": "0.1.0",
+  "description": "Use `@ant-design/colors` as `tailwind colors default`",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
+  "keywords": [
+    "ant-design",
+    "antd",
+    "color",
+    "css",
+    "palette",
+    "style",
+    "tailwind",
+    "tailwindcss"
+  ],
+  "homepage": "https://github.com/airkro/css-bit/tree/master/packages/tailwind-antd-color",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airkro/css-bit.git",
+    "directory": "packages/tailwind-antd-color"
+  },
+  "bugs": {
+    "url": "https://github.com/airkro/css-bit/issues"
+  },
+  "main": "index.cjs",
+  "dependencies": {
+    "@ant-design/colors": "^6.0.0"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^2.2.15"
+  },
+  "engines": {
+    "node": "^12.22.0 || ^14.17.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "css-bit",
+  "version": "0.4.0",
+  "description": "Stylesheet for personal use",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Chen",
+    "email": "airkro@qq.com"
+  },
+  "homepage": "https://github.com/airkro/css-bit/tree/master/packages/css-bit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airkro/css-bit.git",
+    "directory": "packages/css-bit"
+  },
+  "bugs": {
+    "url": "https://github.com/airkro/css-bit/issues"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "engines": {
+    "node": "^12.15.3 || ^14.15.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
