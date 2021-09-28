@@ -37,7 +37,9 @@ function grayable(grey) {
 }
 
 const tailwindAntdColors = plugin.withOptions(
-  () => {},
+  () => {
+    return () => {};
+  },
   ({ primary, grey, 10: ten = true } = {}) => {
     const antdColors = mapObject(preset, (name, item) => [
       name,

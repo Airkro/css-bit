@@ -2,7 +2,8 @@
 
 const test = require('ava').default;
 
-const { Extend } = require('./helper/lib.cjs');
+const { Util } = require('./helper/util.cjs');
+const { Tailwind } = require('./helper/tailwind.cjs');
 
 const { tailwindAntdColors } = require('@css-bit/tailwind-antd-color');
 
@@ -22,7 +23,8 @@ const colorNames = [
 ];
 
 test('default', (t) => {
-  Extend(t);
+  Util(t);
+  Tailwind(t);
 
   const colors = t.getColors(tailwindAntdColors());
 
@@ -38,7 +40,8 @@ test('default', (t) => {
 });
 
 test('primary', (t) => {
-  Extend(t);
+  Util(t);
+  Tailwind(t);
 
   const colors = t.getColors(
     tailwindAntdColors({
@@ -59,7 +62,8 @@ test('primary', (t) => {
 });
 
 test('gray', (t) => {
-  Extend(t);
+  Util(t);
+  Tailwind(t);
 
   const colors = t.getColors(
     tailwindAntdColors({
@@ -79,12 +83,14 @@ test('gray', (t) => {
 });
 
 test('ten', (t) => {
-  Extend(t);
+  Util(t);
+  Tailwind(t);
 
   const colors = t.getColors(
     tailwindAntdColors({
       10: false,
     }),
+    { mode: 'jit' },
   );
 
   t.falsy(colors.grey);
@@ -99,7 +105,8 @@ test('ten', (t) => {
 });
 
 test('all', (t) => {
-  Extend(t);
+  Util(t);
+  Tailwind(t);
 
   const colors = t.getColors(
     tailwindAntdColors({
@@ -107,6 +114,7 @@ test('all', (t) => {
       grey: 174,
       primary: 'green',
     }),
+    { mode: 'jit' },
   );
 
   t.is(colors.grey['5'], '#aeaeae');

@@ -21,7 +21,7 @@ npm install @css-bit/tailwind-smart-config --save-dev
 ## Usage
 
 ```cjs
-const { tailwindSmartConfig } = require('@css-bit/tailwind-antd-color');
+const { tailwindSmartConfig } = require('@css-bit/tailwind-smart-config');
 
 module.exports = {
   plugins: [tailwindSmartConfig()]
