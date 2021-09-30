@@ -73,6 +73,7 @@ const tailwindSmartConfig = plugin.withOptions(
       setting: spacing,
       handler: () => ({
         0: '0',
+        px: '1px',
         ...addUnit(spacing, unit),
       }),
     });

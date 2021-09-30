@@ -19,7 +19,7 @@
     "generate": "node config/generate.mjs",
     "lint": "nice-move lint",
     "prepare": "git config core.hooksPath .hooks",
-    "test": "ava --fail-fast test/process.cjs"
+    "test": "ava --fail-fast"
   },
   "workspaces": [
     "packages/*"
@@ -28,7 +28,7 @@
     "@ant-design/colors": "^6.0.0",
     "@nice-move/cli": "^0.5.29",
     "@nice-move/commitlint-config": "^0.2.0",
-    "@nice-move/eslint-config-base": "^0.5.62",
+    "@nice-move/eslint-config-base": "^0.5.63",
     "@nice-move/prettier-config": "^0.4.14",
     "@nice-move/stylelint-config": "^0.5.11",
     "ava": "^3.15.0",

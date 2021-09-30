@@ -27,51 +27,43 @@ test.serial('color', async (t) => {
   );
 });
 
-test.serial('config', async (t) => {
+test.serial('spacing', async (t) => {
   Tailwind(t);
 
   await t.processFile(css`
     body {
-      @apply m-1;
+      @apply m-1 h-4;
     }
 
     /* - */
 
     body {
       margin: 0.25rem;
+      height: 1rem;
     }
   `);
 
   await t.processFile(
     css`
       body {
-        @apply m-1;
+        @apply m-2 h-px w-0;
       }
 
       /* - */
 
       body {
-        margin: 1px;
+        margin: 2px;
+        height: 1px;
+        width: 0;
       }
     `,
-    tailwindSmartConfig({ spacing: { 1: 1 } }),
-  );
-
-  await t.processFile(
-    css`
-      body {
-        @apply m-1;
-      }
-
-      /* - */
-
-      body {
-        margin: 1px;
-      }
-    `,
-    tailwindSmartConfig({ spacing: { 1: 1 } }),
+    tailwindSmartConfig({ spacing: { 2: 2 } }),
     { mode: 'jit' },
   );
+});
+
+test.serial('config', async (t) => {
+  Tailwind(t);
 
   await t.processFile(
     css`
