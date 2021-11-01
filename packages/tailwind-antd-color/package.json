@@ -1,6 +1,6 @@
 {
   "name": "@css-bit/tailwind-antd-color",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Use `@ant-design/colors` as `tailwind colors default`",
   "license": "MIT",
   "author": {
@@ -31,10 +31,10 @@
     "@ant-design/colors": "^6.0.0"
   },
   "peerDependencies": {
-    "tailwindcss": "^2.2.16"
+    "tailwindcss": "^2.2.19"
   },
   "engines": {
-    "node": "^14.17.0"
+    "node": "^14.17.0 || >=16.13.0"
   },
   "publishConfig": {
     "access": "public",

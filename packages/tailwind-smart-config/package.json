@@ -1,6 +1,6 @@
 {
   "name": "@css-bit/tailwind-smart-config",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Smart tailwind configuration modifier",
   "license": "MIT",
   "author": {
@@ -26,10 +26,10 @@
   },
   "main": "index.cjs",
   "peerDependencies": {
-    "tailwindcss": "^2.2.16"
+    "tailwindcss": "^2.2.19"
   },
   "engines": {
-    "node": "^14.17.0"
+    "node": "^14.17.0 || >=16.13.0"
   },
   "publishConfig": {
     "access": "public",

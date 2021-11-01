@@ -26,25 +26,25 @@
   ],
   "devDependencies": {
     "@ant-design/colors": "^6.0.0",
-    "@nice-move/cli": "^0.5.29",
-    "@nice-move/commitlint-config": "^0.2.0",
-    "@nice-move/eslint-config-base": "^0.5.63",
-    "@nice-move/prettier-config": "^0.4.14",
-    "@nice-move/stylelint-config": "^0.5.11",
+    "@nice-move/cli": "^0.5.32",
+    "@nice-move/commitlint-config": "^0.2.2",
+    "@nice-move/eslint-config-base": "^0.5.66",
+    "@nice-move/prettier-config": "^0.5.1",
+    "@nice-move/stylelint-config": "^0.6.4",
     "ava": "^3.15.0",
-    "commitlint": "^13.2.0",
+    "commitlint": "^13.2.1",
     "eslint": "^7.32.0",
-    "eslint-plugin-ava": "^13.0.0",
-    "fs-chain": "^8.1.0",
-    "garou": "^0.1.40",
-    "nodemon": "^2.0.13",
-    "postcss": "^8.3.8",
+    "eslint-plugin-ava": "^13.1.0",
+    "fs-chain": "^8.1.1",
+    "garou": "^0.2.4",
+    "nodemon": "^2.0.14",
+    "postcss": "^8.3.11",
     "prettier": "^2.4.1",
-    "stylelint": "^13.13.1",
-    "tailwindcss": "^2.2.16"
+    "stylelint": "^14.0.1",
+    "tailwindcss": "^2.2.19"
   },
   "engines": {
-    "node": "^12.22.0 || ^14.17.0"
+    "node": "^12.22.0 || ^14.17.0 || 16.13.0"
   },
   "commitlint": {
     "extends": "@nice-move/commitlint-config"
