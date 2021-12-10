@@ -20,7 +20,7 @@ test.serial('color', async (t) => {
 
       body {
         --tw-text-opacity: 1;
-        color: rgba(250, 173, 20, var(--tw-text-opacity));
+        color: rgb(250 173 20 / var(--tw-text-opacity));
       }
     `,
     tailwindAntdColors(),
