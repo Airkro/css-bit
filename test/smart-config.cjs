@@ -98,6 +98,55 @@ test('borderRadius', (t) => {
   );
 
   t.is(borderRadius.full, '100%');
-  t.is(borderRadius.none, 0);
+  t.is(borderRadius.half, '50%');
+  t.is(borderRadius[0], '0');
   t.is(borderRadius.lg, '10px');
+});
+
+test('borderWidth', (t) => {
+  Util(t);
+  Tailwind(t);
+
+  const { borderWidth } = t.getTheme(
+    tailwindSmartConfig({
+      borderWidth: {
+        lg: 10,
+      },
+    }),
+  );
+
+  t.is(borderWidth.px, '1px');
+  t.is(borderWidth.lg, '10px');
+});
+
+test('gap', (t) => {
+  Util(t);
+  Tailwind(t);
+
+  const { gap } = t.getTheme(
+    tailwindSmartConfig({
+      gap: {
+        lg: 10,
+      },
+    }),
+  );
+
+  t.is(gap.px, '1px');
+  t.is(gap.lg, '10px');
+});
+
+test('inset', (t) => {
+  Util(t);
+  Tailwind(t);
+
+  const { inset } = t.getTheme(
+    tailwindSmartConfig({
+      inset: {
+        lg: 10,
+      },
+    }),
+  );
+
+  t.is(inset.px, '1px');
+  t.is(inset.lg, '10px');
 });

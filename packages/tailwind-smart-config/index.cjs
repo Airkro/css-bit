@@ -6,6 +6,12 @@ const { negative, addUnit, mapObject } = require('./lib.cjs');
 
 const sides = ['top', 'right', 'bottom', 'left'];
 
+const styles = ['solid', 'dashed', 'dotted', 'double', 'hidden', 'none'];
+
+function declaration({ selector, property, value }) {
+  return [selector, { [property]: value }];
+}
+
 const tailwindSmartConfig = plugin.withOptions(
   () => {
     return ({ addUtilities, variants, corePlugins }) => {
@@ -13,10 +19,15 @@ const tailwindSmartConfig = plugin.withOptions(
         addUtilities(
           [
             Object.fromEntries(
-              sides.map((side) => [
-                `.border-${side[0]}-solid`,
-                { [`border-${side}-style`]: 'solid' },
-              ]),
+              styles.flatMap((style) =>
+                sides.map((side) =>
+                  declaration({
+                    selector: `.border-${side[0]}-${style}`,
+                    property: `border-${side}-style`,
+                    value: style,
+                  }),
+                ),
+              ),
             ),
           ],
           variants('borderStyle'),
@@ -24,7 +35,16 @@ const tailwindSmartConfig = plugin.withOptions(
       }
     };
   },
-  ({ unit = 'px', spacing, fontSize, lineHeight, borderRadius } = {}) => {
+  ({
+    unit = 'px',
+    borderRadius,
+    borderWidth,
+    fontSize,
+    gap,
+    inset,
+    lineHeight,
+    spacing,
+  } = {}) => {
     const io = {
       corePlugins: {
         preflight: false,
@@ -68,12 +88,24 @@ const tailwindSmartConfig = plugin.withOptions(
       }
     }
 
+    const zero = { 0: '0' };
+
+    const zeroNone = {
+      ...zero,
+      px: `1${['rpx', 'pt'].includes(unit) ? unit : 'px'}`,
+    };
+
+    const clock = {
+      full: '100%',
+      half: '50%',
+      quater: '25%',
+    };
+
     modify({
       name: 'spacing',
       setting: spacing,
       handler: () => ({
-        0: '0',
-        px: '1px',
+        ...zeroNone,
         ...addUnit(spacing, unit),
       }),
     });
@@ -94,9 +126,39 @@ const tailwindSmartConfig = plugin.withOptions(
       name: 'borderRadius',
       setting: borderRadius,
       handler: () => ({
-        none: 0,
-        full: '100%',
+        ...zero,
+        ...clock,
         ...addUnit(borderRadius, unit),
+      }),
+    });
+
+    modify({
+      name: 'gap',
+      setting: gap,
+      handler: () => ({
+        ...zeroNone,
+        ...clock,
+        ...addUnit(gap, unit),
+      }),
+    });
+
+    modify({
+      name: 'borderWidth',
+      setting: borderWidth,
+      handler: () => ({
+        ...zeroNone,
+        ...addUnit(borderWidth, unit),
+      }),
+    });
+
+    modify({
+      name: 'inset',
+      setting: inset,
+      handler: () => ({
+        auto: 'auto',
+        ...clock,
+        ...zeroNone,
+        ...addUnit(inset, unit),
       }),
     });
 
