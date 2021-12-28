@@ -1,7 +1,6 @@
 'use strict';
 
 const plugin = require('tailwindcss/plugin');
-
 const { negative, addUnit, mapObject } = require('./lib.cjs');
 
 const sides = ['top', 'right', 'bottom', 'left'];
@@ -10,6 +9,12 @@ const styles = ['solid', 'dashed', 'dotted', 'double', 'hidden', 'none'];
 
 function declaration({ selector, property, value }) {
   return [selector, { [property]: value }];
+}
+
+function toPercent(a, b = 1) {
+  const io = (a / b) * 100;
+
+  return `${Number.isInteger(io) ? io : io.toFixed(5)}%`;
 }
 
 const tailwindSmartConfig = plugin.withOptions(
@@ -45,6 +50,30 @@ const tailwindSmartConfig = plugin.withOptions(
     lineHeight,
     spacing,
   } = {}) => {
+    const clock = {
+      full: toPercent(1),
+      '9/10': toPercent(9, 10),
+      '4/5': toPercent(4, 5),
+      '7/10': toPercent(7, 10),
+      '3/4': toPercent(3, 4),
+      '2/3': toPercent(2, 3),
+      '3/5': toPercent(3, 5),
+      half: toPercent(1, 2),
+      '2/5': toPercent(2, 5),
+      '1/3': toPercent(1, 3),
+      '3/10': toPercent(3, 10),
+      quater: toPercent(1, 4),
+      '1/5': toPercent(1, 5),
+      '1/10': toPercent(1, 10),
+    };
+
+    const zero = { 0: '0' };
+
+    const zeroNone = {
+      ...zero,
+      px: `1${['rpx', 'pt'].includes(unit) ? unit : 'px'}`,
+    };
+
     const io = {
       corePlugins: {
         preflight: false,
@@ -88,24 +117,12 @@ const tailwindSmartConfig = plugin.withOptions(
       }
     }
 
-    const zero = { 0: '0' };
-
-    const zeroNone = {
-      ...zero,
-      px: `1${['rpx', 'pt'].includes(unit) ? unit : 'px'}`,
-    };
-
-    const clock = {
-      full: '100%',
-      half: '50%',
-      quater: '25%',
-    };
-
     modify({
       name: 'spacing',
       setting: spacing,
       handler: () => ({
         ...zeroNone,
+        ...clock,
         ...addUnit(spacing, unit),
       }),
     });

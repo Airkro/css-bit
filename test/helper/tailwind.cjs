@@ -4,7 +4,6 @@ const { format } = require('prettier');
 const postcss = require('postcss');
 const resolveConfig = require('tailwindcss/resolveConfig');
 const tailwindcss = require('tailwindcss');
-
 const { Define } = require('./lib.cjs');
 
 function pretty(string) {
@@ -28,11 +27,10 @@ exports.Tailwind = function Tailwind(t) {
     getColors(plugin, config) {
       return this.getTheme(plugin, config).colors;
     },
-    async processFile(io, plugin, config = {}) {
+    async processFile(io, plugin) {
       const [source, expect] = io;
 
       const instance = tailwindcss({
-        ...config,
         plugins: plugin ? [plugin] : [],
       });
 

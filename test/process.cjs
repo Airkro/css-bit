@@ -1,9 +1,7 @@
 'use strict';
 
 const test = require('ava').default;
-
 const { Tailwind, css } = require('./helper/tailwind.cjs');
-
 const { tailwindSmartConfig } = require('@css-bit/tailwind-smart-config');
 const { tailwindAntdColors } = require('@css-bit/tailwind-antd-color');
 
@@ -46,19 +44,20 @@ test.serial('spacing', async (t) => {
   await t.processFile(
     css`
       body {
-        @apply m-2 h-px w-0;
+        @apply m-2 h-px w-0 mt-auto pb-1/10;
       }
 
       /* - */
 
       body {
         margin: 2px;
+        margin-top: auto;
         height: 1px;
         width: 0;
+        padding-bottom: 10%;
       }
     `,
     tailwindSmartConfig({ spacing: { 2: 2 } }),
-    { mode: 'jit' },
   );
 });
 

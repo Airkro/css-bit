@@ -1,10 +1,8 @@
 'use strict';
 
 const test = require('ava').default;
-
 const { Util } = require('./helper/util.cjs');
 const { Tailwind } = require('./helper/tailwind.cjs');
-
 const { tailwindSmartConfig } = require('@css-bit/tailwind-smart-config');
 
 test('basic', (t) => {
@@ -54,9 +52,13 @@ test('spacing', (t) => {
   t.is(margin.sm, '10rpx');
   t.is(margin['-sm'], '-10rpx');
 
-  t.like(margin, padding);
+  t.is(padding[0], '0');
+  t.is(padding.sm, '10rpx');
+  t.is(padding.full, '100%');
+  t.is(padding['1/10'], '10%');
 
-  t.deepEqual(padding, spacing);
+  t.like(margin, spacing);
+  t.like(padding, spacing);
 });
 
 test('fontSize', (t) => {
