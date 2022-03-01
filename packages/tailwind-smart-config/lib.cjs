@@ -18,6 +18,7 @@ function negateValue(io) {
 function mapObject(object, callback, filter) {
   const io = Object.entries(object);
   const tmp = filter ? io.filter(([key, value]) => filter(value, key)) : io;
+
   return Object.fromEntries(tmp.map(([key, value]) => callback(value, key)));
 }
 
@@ -26,7 +27,9 @@ exports.mapObject = mapObject;
 exports.addUnit = function addUnit(object, unit) {
   return mapObject(object, (value, key) => [
     key,
-    typeof value === 'number' ? value + unit : value,
+    typeof value === 'number' && value !== 0 && value !== '0'
+      ? value + unit
+      : value,
   ]);
 };
 
@@ -36,4 +39,14 @@ exports.negative = function negative(object) {
     (value, key) => [`-${key}`, negateValue(value)],
     (value) => value !== '0' && value !== 0,
   );
+};
+
+exports.withOpacityValue = function withOpacityValue(variable) {
+  return ({ opacityValue }) => {
+    if (opacityValue === undefined) {
+      return variable;
+    }
+
+    return `rgb(${variable} / ${opacityValue})`;
+  };
 };

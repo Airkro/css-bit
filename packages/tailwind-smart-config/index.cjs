@@ -1,7 +1,7 @@
 'use strict';
 
 const plugin = require('tailwindcss/plugin');
-const { negative, addUnit, mapObject } = require('./lib.cjs');
+const { negative, addUnit, mapObject, withOpacityValue } = require('./lib.cjs');
 
 const sides = ['top', 'right', 'bottom', 'left'];
 
@@ -16,6 +16,16 @@ function toPercent(a, b = 1) {
 
   return `${Number.isInteger(io) ? io : io.toFixed(5)}%`;
 }
+
+const ems = addUnit(
+  Object.fromEntries(
+    Array.from({ length: 39 })
+      .fill(0)
+      .map((_, i) => `${i + 1}em`)
+      .map((i) => [i, i]),
+  ),
+  'em',
+);
 
 const tailwindSmartConfig = plugin.withOptions(
   () => {
@@ -58,6 +68,7 @@ const tailwindSmartConfig = plugin.withOptions(
       '3/4': toPercent(3, 4),
       '2/3': toPercent(2, 3),
       '3/5': toPercent(3, 5),
+      '9/16': toPercent(9, 16),
       half: toPercent(1, 2),
       '2/5': toPercent(2, 5),
       '1/3': toPercent(1, 3),
@@ -85,8 +96,8 @@ const tailwindSmartConfig = plugin.withOptions(
             current: 'currentColor',
             inherit: 'inherit',
             initial: 'initial',
-            black: 'black',
-            white: 'white',
+            black: withOpacityValue('0 0 0'),
+            white: withOpacityValue('255 255 255'),
           },
           zIndex: {
             1: '1',
@@ -110,10 +121,12 @@ const tailwindSmartConfig = plugin.withOptions(
       },
     };
 
-    function modify({ name, setting, handler }) {
+    function modify({ name, names = [name], setting, handler }) {
       if (setting) {
-        io.theme[name] = {};
-        io.theme.extend[name] = handler();
+        names.forEach((namespace) => {
+          io.theme[namespace] = {};
+          io.theme.extend[namespace] = handler();
+        });
       }
     }
 
@@ -123,6 +136,17 @@ const tailwindSmartConfig = plugin.withOptions(
       handler: () => ({
         ...zeroNone,
         ...clock,
+        ...addUnit(spacing, unit),
+      }),
+    });
+
+    modify({
+      names: ['minWidth', 'maxWidth', 'minHeight', 'maxHeight'],
+      setting: spacing,
+      handler: () => ({
+        ...zero,
+        ...clock,
+        ...(unit === 'em' ? undefined : ems),
         ...addUnit(spacing, unit),
       }),
     });

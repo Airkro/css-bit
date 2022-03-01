@@ -17,8 +17,8 @@
   },
   "scripts": {
     "generate": "node config/generate.mjs",
-    "lint": "nice-move lint",
-    "prepare": "git config core.hooksPath .hooks",
+    "lint:staged": "nice-move lint staged",
+    "prepare": "git config core.hooksPath .githooks",
     "test": "ava --fail-fast"
   },
   "workspaces": [
@@ -26,28 +26,23 @@
   ],
   "devDependencies": {
     "@ant-design/colors": "^6.0.0",
-    "@nice-move/cli": "^0.6.0",
-    "@nice-move/commitlint-config": "^0.4.0",
-    "@nice-move/eslint-config-base": "^0.5.78",
-    "@nice-move/prettier-config": "^0.5.1",
-    "@nice-move/stylelint-config": "^0.6.12",
-    "ava": "^3.15.0",
-    "commitlint": "^15.0.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-ava": "^13.1.0",
-    "fs-chain": "^8.1.1",
-    "garou": "^0.3.6",
+    "@nice-move/cli": "^0.7.0",
+    "@nice-move/eslint-config-base": "^0.6.1",
+    "@nice-move/prettier-config": "^0.5.2",
+    "@nice-move/stylelint-config": "^0.6.14",
+    "ava": "^4.0.1",
+    "eslint": "^8.10.0",
+    "eslint-plugin-ava": "^13.2.0",
+    "fs-chain": "^8.1.2",
+    "garou": "^0.4.0",
     "nodemon": "^2.0.15",
-    "postcss": "^8.4.5",
+    "postcss": "^8.4.7",
     "prettier": "^2.5.1",
-    "stylelint": "^14.2.0",
-    "tailwindcss": "^3.0.7"
+    "stylelint": "^14.5.3",
+    "tailwindcss": "^3.0.23"
   },
   "engines": {
     "node": "^12.22.0 || ^14.17.0 || 16.13.0"
-  },
-  "commitlint": {
-    "extends": "@nice-move/commitlint-config"
   },
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
