@@ -91,6 +91,10 @@ const tailwindSmartConfig = plugin.withOptions(
       },
       theme: {
         extend: {
+          screens: {
+            print: { raw: 'print' },
+            screen: { raw: 'screen' },
+          },
           colors: {
             transparent: 'transparent',
             current: 'currentColor',
