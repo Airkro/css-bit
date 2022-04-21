@@ -1,9 +1,9 @@
-'use strict';
-
-const test = require('ava').default;
-const { Util } = require('./helper/util.cjs');
-const { Tailwind } = require('./helper/tailwind.cjs');
-const { tailwindSmartConfig } = require('@css-bit/tailwind-smart-config');
+/* eslint-disable ava/use-t-well */
+// eslint-disable-next-line import/no-unresolved
+import test from 'ava';
+import { Util } from './helper/util.cjs';
+import { Tailwind } from './helper/tailwind.cjs';
+import { tailwindSmartConfig } from '@css-bit/tailwind-smart-config';
 
 test('basic', (t) => {
   Util(t);
@@ -151,4 +151,14 @@ test('inset', (t) => {
 
   t.is(inset.px, '1px');
   t.is(inset.lg, '10px');
+});
+
+test('backgroundSize', (t) => {
+  Util(t);
+  Tailwind(t);
+
+  const { backgroundSize } = t.getTheme(tailwindSmartConfig());
+
+  t.is(backgroundSize.cover, 'cover');
+  t.is(backgroundSize['y-2/3'], 'auto 66.66667%');
 });

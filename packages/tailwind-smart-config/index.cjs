@@ -82,6 +82,8 @@ const tailwindSmartConfig = plugin.withOptions(
 
     const zeroNone = {
       ...zero,
+      '1em': '1em',
+      '1rem': '1rem',
       px: `1${['rpx', 'pt'].includes(unit) ? unit : 'px'}`,
     };
 
@@ -204,6 +206,18 @@ const tailwindSmartConfig = plugin.withOptions(
         ...clock,
         ...zeroNone,
         ...addUnit(inset, unit),
+      }),
+    });
+
+    modify({
+      name: 'backgroundSize',
+      setting: true,
+      handler: () => ({
+        auto: 'auto',
+        cover: 'cover',
+        contain: 'contain',
+        ...mapObject(clock, (value, key) => [`x-${key}`, `${value} auto`]),
+        ...mapObject(clock, (value, key) => [`y-${key}`, `auto ${value}`]),
       }),
     });
 
