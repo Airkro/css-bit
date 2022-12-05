@@ -27,23 +27,23 @@
   "devDependencies": {
     "@ant-design/colors": "^6.0.0",
     "@bring-it/npm": "^0.1.0",
-    "@nice-move/cli": "^0.9.8",
-    "@nice-move/eslint-config-base": "^0.8.8",
-    "@nice-move/prettier-config": "^0.7.2",
-    "@nice-move/stylelint-config": "^0.7.1",
-    "ava": "^4.3.3",
-    "eslint": "^8.23.0",
+    "@nice-move/cli": "^0.10.2",
+    "@nice-move/eslint-config-base": "^0.9.3",
+    "@nice-move/prettier-config": "^0.8.0",
+    "@nice-move/stylelint-config": "^0.8.1",
+    "ava": "^5.1.0",
+    "eslint": "^8.29.0",
     "eslint-plugin-ava": "^13.2.0",
     "fs-chain": "^8.2.1",
-    "garou": "^0.5.0",
-    "nodemon": "^2.0.19",
-    "postcss": "^8.4.16",
-    "prettier": "^2.7.1",
-    "stylelint": "^14.11.0",
-    "tailwindcss": "^3.1.8"
+    "garou": "^0.5.3",
+    "nodemon": "^2.0.20",
+    "postcss": "^8.4.19",
+    "prettier": "^2.8.0",
+    "stylelint": "^14.16.0",
+    "tailwindcss": "^3.2.4"
   },
   "engines": {
-    "node": "^12.22.0 || ^14.17.0 || >=16.13.0"
+    "node": "^14.17.0 || >=16.13.0"
   },
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"

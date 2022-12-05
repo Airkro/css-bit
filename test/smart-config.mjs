@@ -1,15 +1,10 @@
-/* eslint-disable ava/use-t-well */
-// eslint-disable-next-line import/no-unresolved
-import test from 'ava';
-import { Util } from './helper/util.cjs';
-import { Tailwind } from './helper/tailwind.cjs';
 import { tailwindSmartConfig } from '@css-bit/tailwind-smart-config';
+import test from 'ava';
+
+import { getColors, getTheme } from './helper/lib.mjs';
 
 test('basic', (t) => {
-  Util(t);
-  Tailwind(t);
-
-  const { zIndex, flexGrow } = t.getTheme(tailwindSmartConfig());
+  const { zIndex, flexGrow } = getTheme(tailwindSmartConfig());
 
   t.is(flexGrow[2], '2');
 
@@ -17,10 +12,7 @@ test('basic', (t) => {
 });
 
 test('colors', (t) => {
-  Util(t);
-  Tailwind(t);
-
-  const colors = t.getColors(tailwindSmartConfig(), {
+  const colors = getColors(tailwindSmartConfig(), {
     theme: {
       colors: { red: '#f00' },
       extend: {
@@ -33,10 +25,7 @@ test('colors', (t) => {
 });
 
 test('spacing', (t) => {
-  Util(t);
-  Tailwind(t);
-
-  const { margin, padding, spacing } = t.getTheme(
+  const { margin, padding, spacing } = getTheme(
     tailwindSmartConfig({
       spacing: {
         sm: 10,
@@ -62,10 +51,7 @@ test('spacing', (t) => {
 });
 
 test('fontSize', (t) => {
-  Util(t);
-  Tailwind(t);
-
-  const { fontSize } = t.getTheme(
+  const { fontSize } = getTheme(
     tailwindSmartConfig({
       fontSize: {
         lg: 32,
@@ -75,7 +61,7 @@ test('fontSize', (t) => {
 
   t.is(fontSize.lg, '32px');
 
-  const { fontSize: withLineHeight } = t.getTheme(
+  const { fontSize: withLineHeight } = getTheme(
     tailwindSmartConfig({
       fontSize: {
         lg: 32,
@@ -88,10 +74,7 @@ test('fontSize', (t) => {
 });
 
 test('borderRadius', (t) => {
-  Util(t);
-  Tailwind(t);
-
-  const { borderRadius } = t.getTheme(
+  const { borderRadius } = getTheme(
     tailwindSmartConfig({
       borderRadius: {
         lg: 10,
@@ -106,10 +89,7 @@ test('borderRadius', (t) => {
 });
 
 test('borderWidth', (t) => {
-  Util(t);
-  Tailwind(t);
-
-  const { borderWidth } = t.getTheme(
+  const { borderWidth } = getTheme(
     tailwindSmartConfig({
       borderWidth: {
         lg: 10,
@@ -122,10 +102,7 @@ test('borderWidth', (t) => {
 });
 
 test('gap', (t) => {
-  Util(t);
-  Tailwind(t);
-
-  const { gap } = t.getTheme(
+  const { gap } = getTheme(
     tailwindSmartConfig({
       gap: {
         lg: 10,
@@ -138,10 +115,7 @@ test('gap', (t) => {
 });
 
 test('inset', (t) => {
-  Util(t);
-  Tailwind(t);
-
-  const { inset } = t.getTheme(
+  const { inset } = getTheme(
     tailwindSmartConfig({
       inset: {
         lg: 10,
@@ -154,10 +128,7 @@ test('inset', (t) => {
 });
 
 test('backgroundSize', (t) => {
-  Util(t);
-  Tailwind(t);
-
-  const { backgroundSize } = t.getTheme(tailwindSmartConfig());
+  const { backgroundSize } = getTheme(tailwindSmartConfig());
 
   t.is(backgroundSize.cover, 'cover');
   t.is(backgroundSize['y-2/3'], 'auto 66.66667%');
