@@ -1,9 +1,11 @@
 'use strict';
 
-const {
-  presetPalettes: { grey: _, ...preset },
-  generate,
-} = require('@ant-design/colors');
+const { presetPalettes, generate } = require('@ant-design/colors');
+
+const blue = '#1677ff';
+presetPalettes.blue = generate(blue);
+presetPalettes.blue.primary = blue;
+delete presetPalettes.grey;
 
 const plugin = require('tailwindcss/plugin');
 
@@ -29,10 +31,11 @@ function generateGrey(value) {
   const primary = rgb2hex(value);
   const io = generate(primary);
   io.primary = primary;
+
   return io;
 }
 
-function grayable(grey) {
+function grayAble(grey) {
   return typeof grey === 'number' && grey % 2 === 0 && grey >= 0 && grey <= 255;
 }
 
@@ -41,17 +44,18 @@ const tailwindAntdColors = plugin.withOptions(
     return () => {};
   },
   ({ primary, grey, 10: ten = true } = {}) => {
-    const antdColors = mapObject(preset, (name, item) => [
+    const antdColors = mapObject(presetPalettes, (name, item) => [
       name,
       picker(item, { ten }),
     ]);
     const colors = {
       ...antdColors,
-      ...(grayable(grey) && {
+      ...(grayAble(grey) && {
         grey: picker(generateGrey(grey), { ten }),
       }),
       ...(antdColors[primary] && { primary: antdColors[primary] }),
     };
+
     return { theme: { colors } };
   },
 );

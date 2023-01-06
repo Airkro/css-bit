@@ -1,5 +1,8 @@
-import { presetPalettes } from '@ant-design/colors';
+import { generate, presetPalettes } from '@ant-design/colors';
 import { Text } from 'fs-chain';
+
+presetPalettes.blue = generate('#1677ff');
+delete presetPalettes.grey;
 
 const all = Object.entries(presetPalettes).map(([colorName, colors]) => [
   colorName,

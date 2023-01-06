@@ -1,6 +1,6 @@
 {
   "name": "@css-bit/tailwind-antd-color",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Use `@ant-design/colors` as `tailwind colors default`",
   "license": "MIT",
   "author": {
