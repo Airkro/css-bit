@@ -2,9 +2,6 @@
 
 const { presetPalettes, generate } = require('@ant-design/colors');
 
-const blue = '#1677ff';
-presetPalettes.blue = generate(blue);
-presetPalettes.blue.primary = blue;
 delete presetPalettes.grey;
 
 const plugin = require('tailwindcss/plugin');
