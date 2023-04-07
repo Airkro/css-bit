@@ -29,7 +29,6 @@ module.exports = {
     tailwindSmartConfig({
       unit: 'rem',
       spacing,
-      lineHeight: 1,
       fontSize: {
         small: 'small',
         normal: 'normal',

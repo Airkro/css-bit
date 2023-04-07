@@ -59,18 +59,7 @@ test('fontSize', (t) => {
     }),
   );
 
-  t.is(fontSize.lg, '32px');
-
-  const { fontSize: withLineHeight } = getTheme(
-    tailwindSmartConfig({
-      fontSize: {
-        lg: 32,
-      },
-      lineHeight: 1,
-    }),
-  );
-
-  t.deepEqual(withLineHeight.lg, ['32px', 1]);
+  t.deepEqual(fontSize.lg, ['32px', 1]);
 });
 
 test('borderRadius', (t) => {

@@ -161,12 +161,17 @@ const tailwindSmartConfig = plugin.withOptions(
       name: 'fontSize',
       setting: fontSize,
       handler: () =>
-        lineHeight
-          ? mapObject(addUnit(fontSize, unit), (value, key) => [
-              key,
-              [value, lineHeight],
-            ])
-          : addUnit(fontSize, unit),
+        mapObject(addUnit(fontSize, unit), (value, key) => [key, [value, 1]]),
+    });
+
+    modify({
+      name: 'lineHeight',
+      setting: lineHeight,
+      handler: () => ({
+        ...zero,
+        none: 1,
+        ...addUnit(lineHeight, unit),
+      }),
     });
 
     modify({

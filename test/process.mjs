@@ -75,3 +75,18 @@ test.serial(
   `,
   tailwindSmartConfig(),
 );
+
+test.serial(
+  'font-szie',
+  processFile,
+  css`
+    body {
+      @apply text-large;
+    }
+  `,
+  tailwindSmartConfig({
+    fontSize: {
+      large: 4,
+    },
+  }),
+);
