@@ -84,7 +84,8 @@ const tailwindSmartConfig = plugin.withOptions(
       ...zero,
       '1em': '1em',
       '1rem': '1rem',
-      px: `1${['rpx', 'pt'].includes(unit) ? unit : 'px'}`,
+      '1pt': '1pt',
+      px: `1${unit === 'rpx' ? unit : 'px'}`,
     };
 
     const io = {
