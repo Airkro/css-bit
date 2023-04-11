@@ -82,9 +82,9 @@ const tailwindSmartConfig = plugin.withOptions(
 
     const zeroNone = {
       ...zero,
-      '1em': '1em',
-      '1rem': '1rem',
-      '1pt': '1pt',
+      em: '1em',
+      rem: '1rem',
+      pt: '1pt',
       px: `1${unit === 'rpx' ? unit : 'px'}`,
     };
 
@@ -171,7 +171,7 @@ const tailwindSmartConfig = plugin.withOptions(
       handler: () => ({
         ...zero,
         none: 1,
-        ...addUnit(lineHeight, unit),
+        ...lineHeight,
       }),
     });
 
