@@ -130,7 +130,7 @@ test.serial(
   processFileSmart,
   css`
     body {
-      @apply border-px border-t-lg;
+      @apply border-px border-t-lg border-b-0 border-l;
     }
   `,
   {
@@ -138,6 +138,16 @@ test.serial(
       lg: 10,
     },
   },
+);
+
+test.serial(
+  'border-style',
+  processFileSmart,
+  css`
+    body {
+      @apply border-b-solid border-t-dotted;
+    }
+  `,
 );
 
 test.serial(

@@ -200,6 +200,7 @@ const tailwindSmartConfig = plugin.withOptions(
       setting: borderWidth,
       handler: () => ({
         ...zeroNone,
+        DEFAULT: '1px',
         ...addUnit(borderWidth, unit),
       }),
     });
