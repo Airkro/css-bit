@@ -1,24 +1,7 @@
 import { tailwindAntdColors } from '@css-bit/tailwind-antd-color';
-import { tailwindSmartConfig } from '@css-bit/tailwind-smart-config';
 import test from 'ava';
-import postcss from 'postcss';
-import tailwindcss from 'tailwindcss';
 
-import { css, pretty } from './helper/lib.mjs';
-
-async function processFile(t, source, plugin) {
-  const instance = tailwindcss({
-    plugins: plugin ? [plugin] : [],
-  });
-
-  const processor = postcss([instance]);
-
-  const result = await processor.process(source, { from: '.' });
-
-  t.snapshot(pretty(result.css));
-
-  t.is(result.warnings().length, 0);
-}
+import { css, processFile, processFileSmart } from './helper/lib.mjs';
 
 test.serial(
   'color',
@@ -30,63 +13,154 @@ test.serial(
   `,
   tailwindAntdColors(),
 );
+
 test.serial(
   'spacing-1',
-  processFile,
+  processFileSmart,
   css`
     body {
-      @apply m-1 h-4;
+      @apply -mb-sm m-0 m-auto p-0 p-full pb-1/10;
     }
   `,
+  {
+    spacing: {
+      sm: 10,
+      md: 20,
+    },
+    unit: 'rpx',
+  },
 );
 
 test.serial(
   'spacing-2',
-  processFile,
+  processFileSmart,
   css`
     body {
-      @apply m-2 h-px w-0 mt-auto pb-1/10;
+      @apply m-2 mt-auto h-px w-0 pb-1/10;
     }
   `,
-  tailwindSmartConfig({ spacing: { 2: 2 } }),
+  {
+    spacing: {
+      2: 2,
+    },
+  },
 );
 
 test.serial(
   'config-1',
-  processFile,
+  processFileSmart,
   css`
     body {
       @apply rounded-lg;
     }
   `,
-  tailwindSmartConfig({
+  {
     borderRadius: { lg: 10 },
     unit: 'pt',
-  }),
+  },
 );
 
 test.serial(
   'config-2',
-  processFile,
+  processFileSmart,
   css`
     body {
       @apply border-b-solid;
     }
   `,
-  tailwindSmartConfig(),
 );
 
 test.serial(
-  'font-szie',
-  processFile,
+  'font-size',
+  processFileSmart,
   css`
     body {
       @apply text-large;
     }
   `,
-  tailwindSmartConfig({
+  {
     fontSize: {
       large: 4,
     },
-  }),
+  },
+);
+
+test.serial(
+  'background-size',
+  processFileSmart,
+  css`
+    body {
+      @apply bg-cover bg-y-2/3;
+    }
+  `,
+);
+
+test.serial(
+  'inset',
+  processFileSmart,
+  css`
+    body {
+      @apply inset-lg top-px;
+    }
+  `,
+  {
+    inset: {
+      lg: 10,
+    },
+  },
+);
+
+test.serial(
+  'gap',
+  processFileSmart,
+  css`
+    body {
+      @apply gap-lg gap-x-px;
+    }
+  `,
+  {
+    gap: {
+      lg: 10,
+    },
+  },
+);
+
+test.serial(
+  'border-width',
+  processFileSmart,
+  css`
+    body {
+      @apply border-px border-t-lg;
+    }
+  `,
+  {
+    borderWidth: {
+      lg: 10,
+    },
+  },
+);
+
+test.serial(
+  'border-radius',
+  processFileSmart,
+  css`
+    body {
+      @apply rounded-half rounded-b-0 rounded-r-lg rounded-s-full;
+    }
+  `,
+  {
+    borderRadius: {
+      lg: 10,
+    },
+  },
+);
+
+test.serial(
+  'other',
+  processFileSmart,
+  css`
+    body {
+      @apply z-10 grow-2 text-initial;
+    }
+  `,
 );
