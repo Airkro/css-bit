@@ -27,6 +27,14 @@ const ems = addUnit(
   'em',
 );
 
+function getSpacing({ step = 0.5, edge = 90, ...rest }) {
+  const { 0: __, ...spacing } = Object.fromEntries(
+    Array.from({ length: edge + 1 }).map((_, s) => [s, s * step]),
+  );
+
+  return { ...spacing, ...rest };
+}
+
 const tailwindSmartConfig = plugin.withOptions(
   () => {
     return ({ addUtilities, variants, corePlugins }) => {
@@ -58,8 +66,10 @@ const tailwindSmartConfig = plugin.withOptions(
     gap,
     inset,
     lineHeight,
-    spacing,
+    spacing: spacingConfig,
   } = {}) => {
+    const spacing = spacingConfig ? getSpacing(spacingConfig) : undefined;
+
     const clock = {
       full: toPercent(1),
       '9/10': toPercent(9, 10),
@@ -110,6 +120,8 @@ const tailwindSmartConfig = plugin.withOptions(
             1: '1',
             2: '2',
             3: '3',
+            4: '4',
+            5: '5',
           },
           flexGrow: {
             1: '1',

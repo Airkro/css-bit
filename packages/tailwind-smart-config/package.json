@@ -1,6 +1,6 @@
 {
   "name": "@css-bit/tailwind-smart-config",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Smart tailwind configuration modifier",
   "license": "MIT",
   "author": {

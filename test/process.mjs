@@ -41,7 +41,8 @@ test.serial(
   `,
   {
     spacing: {
-      2: 2,
+      step: 1,
+      edge: 2,
     },
   },
 );
