@@ -67,35 +67,51 @@ const tailwindSmartConfig = plugin.withOptions(
     inset,
     lineHeight,
     spacing: spacingConfig,
+    dash = '/',
   } = {}) => {
     const spacing = spacingConfig ? getSpacing(spacingConfig) : undefined;
 
+    const pair = [
+      [1, 10],
+      [1, 2],
+      [1, 3],
+      [1, 4],
+      [1, 5],
+      [2, 3],
+      [2, 5],
+      [3, 10],
+      [3, 4],
+      [3, 5],
+      [4, 5],
+      [7, 10],
+      [9, 10],
+      [9, 16],
+    ];
+
     const clock = {
+      ...Object.fromEntries(
+        pair.map(([a, b]) => [a + dash + b, toPercent(a, b)]),
+      ),
       full: toPercent(1),
-      '9/10': toPercent(9, 10),
-      '4/5': toPercent(4, 5),
-      '7/10': toPercent(7, 10),
-      '3/4': toPercent(3, 4),
-      '2/3': toPercent(2, 3),
-      '3/5': toPercent(3, 5),
-      '9/16': toPercent(9, 16),
+      slice: toPercent(1, 3),
+      '2-slice': toPercent(2, 3),
       half: toPercent(1, 2),
-      '2/5': toPercent(2, 5),
-      '1/3': toPercent(1, 3),
-      '3/10': toPercent(3, 10),
       quater: toPercent(1, 4),
-      '1/5': toPercent(1, 5),
-      '1/10': toPercent(1, 10),
+      '3-quater': toPercent(3, 4),
     };
 
     const zero = { 0: '0' };
+
+    const pxUnit = unit === 'rpx' ? unit : 'px';
 
     const zeroNone = {
       ...zero,
       em: '1em',
       rem: '1rem',
       pt: '1pt',
-      px: `1${unit === 'rpx' ? unit : 'px'}`,
+      '2pt': '2pt',
+      px: `1${pxUnit}`,
+      '2px': `2${pxUnit}`,
     };
 
     const io = {

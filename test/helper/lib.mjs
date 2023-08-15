@@ -1,11 +1,11 @@
 import { tailwindSmartConfig } from '@css-bit/tailwind-smart-config';
 import postcss from 'postcss';
-import prettier from 'prettier';
+import { format } from 'prettier';
 import tailwindcss from 'tailwindcss';
 import resolveConfig from 'tailwindcss/resolveConfig.js';
 
 export function pretty(string) {
-  return prettier.format(string, {
+  return format(string, {
     parser: 'css',
     singleQuote: true,
   });
@@ -37,7 +37,7 @@ export async function processFile(t, source, plugin) {
 
   const processor = postcss([instance]);
 
-  const result = await processor.process(source, { from: '.' });
+  const result = await processor.process(await source, { from: '.' });
 
   t.snapshot(pretty(result.css));
 
