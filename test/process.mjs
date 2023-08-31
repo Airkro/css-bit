@@ -171,7 +171,10 @@ test.serial(
   processFileSmart,
   css`
     body {
-      @apply z-10 grow-2 text-initial;
+      @apply z-10 aspect-9/16 aspect-square grow-2 text-initial;
     }
   `,
+  {
+    aspectRatio: {},
+  },
 );

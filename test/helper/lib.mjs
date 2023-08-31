@@ -27,7 +27,7 @@ export function getColors(plugin, config) {
 }
 
 export function css([string]) {
-  return string.split('/* - */', 2).map((code) => pretty(code));
+  return string.split('/* - */', 2);
 }
 
 export async function processFile(t, source, plugin) {
@@ -39,7 +39,7 @@ export async function processFile(t, source, plugin) {
 
   const result = await processor.process(await source, { from: '.' });
 
-  t.snapshot(pretty(result.css));
+  t.snapshot(await pretty(result.css));
 
   t.is(result.warnings().length, 0);
 }

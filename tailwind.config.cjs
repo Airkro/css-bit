@@ -25,6 +25,7 @@ module.exports = {
     tailwindSmartConfig({
       unit: 'rem',
       spacing: {},
+      aspectRatio: {},
       fontSize: {
         small: 'small',
         normal: 'normal',

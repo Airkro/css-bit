@@ -67,6 +67,7 @@ const tailwindSmartConfig = plugin.withOptions(
     inset,
     lineHeight,
     spacing: spacingConfig,
+    aspectRatio,
     dash = '/',
   } = {}) => {
     const spacing = spacingConfig ? getSpacing(spacingConfig) : undefined;
@@ -164,6 +165,20 @@ const tailwindSmartConfig = plugin.withOptions(
         });
       }
     }
+
+    modify({
+      name: 'aspectRatio',
+      setting: aspectRatio,
+      handler: () => ({
+        ...Object.fromEntries(
+          pair.map(([a, b]) => [[a, b].join(dash), [a, b].join(' / ')]),
+        ),
+        auto: 'auto',
+        square: '1 / 1',
+        video: '16 / 9',
+        image: '4 / 3',
+      }),
+    });
 
     modify({
       name: 'spacing',
