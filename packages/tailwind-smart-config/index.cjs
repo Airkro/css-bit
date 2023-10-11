@@ -205,7 +205,7 @@ const tailwindSmartConfig = plugin.withOptions(
       name: 'fontSize',
       setting: fontSize,
       handler: () =>
-        mapObject(addUnit(fontSize, unit), (value, key) => [key, [value, 1]]),
+        mapObject(addUnit(fontSize, unit), (value, key) => [key, value]),
     });
 
     modify({
