@@ -37,7 +37,15 @@ function getSpacing({ step = 0.5, edge = 90, ...rest }) {
 
 const tailwindSmartConfig = plugin.withOptions(
   () => {
-    return ({ addUtilities, variants, corePlugins }) => {
+    return ({ addUtilities, addVariant, variants, corePlugins }) => {
+      addVariant('before', () => {
+        return '&::before';
+      });
+
+      addVariant('after', () => {
+        return '&::after';
+      });
+
       if (corePlugins('borderStyle')) {
         addUtilities(
           [

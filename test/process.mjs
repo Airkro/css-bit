@@ -1,5 +1,6 @@
-import { tailwindAntdColors } from '@css-bit/tailwind-antd-color';
 import test from 'ava';
+
+import { tailwindAntdColors } from '@css-bit/tailwind-antd-color';
 
 import { css, processFile, processFileSmart } from './helper/lib.mjs';
 
@@ -163,6 +164,19 @@ test.serial(
     borderRadius: {
       lg: 10,
     },
+  },
+);
+
+test.serial(
+  'pseudo',
+  processFileSmart,
+  css`
+    body {
+      @apply before:grow-2 after:rounded-full;
+    }
+  `,
+  {
+    aspectRatio: {},
   },
 );
 
