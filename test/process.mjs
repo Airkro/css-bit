@@ -12,7 +12,7 @@ test.serial(
       @apply text-gold-6;
     }
   `,
-  tailwindAntdColors(),
+  [tailwindAntdColors()],
 );
 
 test.serial(
@@ -147,7 +147,15 @@ test.serial(
   processFileSmart,
   css`
     body {
-      @apply border-b-solid border-t-dotted;
+      @apply border-b-solid border-t-dotted border-l-hidden border-r-none;
+    }
+
+    div {
+      @apply border-x-dashed border-y-double;
+    }
+
+    p {
+      @apply border-s-hidden border-e-none;
     }
   `,
 );

@@ -1,8 +1,12 @@
-import { tailwindSmartConfig } from '@css-bit/tailwind-smart-config';
 import postcss from 'postcss';
 import { format } from 'prettier';
 import tailwindcss from 'tailwindcss';
 import resolveConfig from 'tailwindcss/resolveConfig.js';
+
+import {
+  featureFixing,
+  tailwindSmartConfig,
+} from '@css-bit/tailwind-smart-config';
 
 export function pretty(string) {
   return format(string, {
@@ -30,10 +34,8 @@ export function css([string]) {
   return string.split('/* - */', 2);
 }
 
-export async function processFile(t, source, plugin) {
-  const instance = tailwindcss({
-    plugins: plugin ? [plugin] : [],
-  });
+export async function processFile(t, source, plugins = []) {
+  const instance = tailwindcss({ plugins });
 
   const processor = postcss([instance]);
 
@@ -45,5 +47,5 @@ export async function processFile(t, source, plugin) {
 }
 
 export async function processFileSmart(t, source, options) {
-  return processFile(t, source, tailwindSmartConfig(options));
+  return processFile(t, source, [tailwindSmartConfig(options), featureFixing]);
 }
