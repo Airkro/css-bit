@@ -1,15 +1,13 @@
-'use strict';
+import { tailwindAntdColors } from '@css-bit/tailwind-antd-color';
+import {
+  featureFixing,
+  tailwindSmartConfig,
+} from '@css-bit/tailwind-smart-config';
 
-const { tailwindSmartConfig } = require('@css-bit/tailwind-smart-config');
-const { tailwindAntdColors } = require('@css-bit/tailwind-antd-color');
-
-module.exports = {
+export default {
   important: true,
   content: ['./{src,packages}/**/*.{html,jsx,js}'],
   safelist: process.env.TAILWIND_ALL ? [{ pattern: /.*/ }] : undefined,
-  corePlugins: {
-    preflight: false,
-  },
   theme: {
     extend: {
       borderColor: {
@@ -18,6 +16,7 @@ module.exports = {
     },
   },
   plugins: [
+    featureFixing,
     tailwindAntdColors({
       10: false,
       grey: 174,

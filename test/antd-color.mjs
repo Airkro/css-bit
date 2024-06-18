@@ -1,5 +1,6 @@
-import { tailwindAntdColors } from '@css-bit/tailwind-antd-color';
 import test from 'ava';
+
+import { tailwindAntdColors } from '@css-bit/tailwind-antd-color';
 
 import { getColors } from './helper/lib.mjs';
 

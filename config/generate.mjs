@@ -1,5 +1,6 @@
-import { generate, presetPalettes } from '@ant-design/colors';
 import { Text } from 'fs-chain';
+
+import { generate, presetPalettes } from '@ant-design/colors';
 
 presetPalettes.blue = generate('#1677ff');
 delete presetPalettes.grey;
