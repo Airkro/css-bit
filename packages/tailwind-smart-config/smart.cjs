@@ -157,16 +157,6 @@ exports.tailwindSmartConfig = plugin.withOptions(
       handler: () => ({
         ...zeroNone,
         ...clock,
-        ...addUnit(spacing, unit),
-      }),
-    });
-
-    modify({
-      names: ['minWidth', 'maxWidth', 'minHeight', 'maxHeight'],
-      setting: spacing,
-      handler: () => ({
-        ...zero,
-        ...clock,
         ...(unit === 'em' ? undefined : ems),
         ...addUnit(spacing, unit),
       }),

@@ -21,7 +21,7 @@
     "lint:type": "tsc --noEmit",
     "lint:version": "syncpack lint",
     "prepare": "nice-move git hooks",
-    "snapshot": "ava --fail-fast -u",
+    "snapshot": "ava --fail-fast -u -w",
     "test": "ava --fail-fast",
     "version:pin": "syncpack fix-mismatches"
   },

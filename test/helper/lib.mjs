@@ -3,10 +3,7 @@ import { format } from 'prettier';
 import tailwindcss from 'tailwindcss';
 import resolveConfig from 'tailwindcss/resolveConfig.js';
 
-import {
-  featureFixing,
-  tailwindSmartConfig,
-} from '@css-bit/tailwind-smart-config';
+import { tailwindSmartConfig } from '@css-bit/tailwind-smart-config';
 
 export function pretty(string) {
   return format(string, {
@@ -47,5 +44,5 @@ export async function processFile(t, source, plugins = []) {
 }
 
 export async function processFileSmart(t, source, options) {
-  return processFile(t, source, [tailwindSmartConfig(options), featureFixing]);
+  return processFile(t, source, [tailwindSmartConfig(options)]);
 }

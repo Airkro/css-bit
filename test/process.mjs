@@ -1,6 +1,7 @@
 import test from 'ava';
 
 import { tailwindAntdColors } from '@css-bit/tailwind-antd-color';
+import { featureFixing } from '@css-bit/tailwind-smart-config';
 
 import { css, processFile, processFileSmart } from './helper/lib.mjs';
 
@@ -13,6 +14,55 @@ test.serial(
     }
   `,
   [tailwindAntdColors()],
+);
+
+test.serial(
+  'fixing',
+  processFile,
+  css`
+    body {
+      @apply border-b-solid border-t-dotted border-l-hidden border-r-none;
+    }
+
+    div {
+      @apply border-x-dashed border-y-double;
+    }
+
+    p {
+      @apply border-s-hidden border-e-none;
+    }
+  `,
+  [featureFixing],
+);
+
+test.serial(
+  'pseudo',
+  processFile,
+  css`
+    body {
+      @apply before:flex after:hidden;
+    }
+  `,
+  [featureFixing],
+);
+
+test.serial(
+  'spacing-0',
+  processFileSmart,
+  css`
+    body {
+      @apply size-full;
+    }
+    div {
+      @apply h-quater w-half;
+    }
+    img {
+      @apply max-h-2/5 min-h-quater max-w-half;
+    }
+  `,
+  {
+    spacing: {},
+  },
 );
 
 test.serial(
@@ -39,11 +89,15 @@ test.serial(
     body {
       @apply m-2 mt-auto h-px w-0 pb-1/10;
     }
+
+    div {
+      @apply size-10;
+    }
   `,
   {
     spacing: {
       step: 1,
-      edge: 2,
+      edge: 20,
     },
   },
 );
@@ -60,16 +114,6 @@ test.serial(
     borderRadius: { lg: 10 },
     unit: 'pt',
   },
-);
-
-test.serial(
-  'config-2',
-  processFileSmart,
-  css`
-    body {
-      @apply border-b-solid;
-    }
-  `,
 );
 
 test.serial(
@@ -132,7 +176,7 @@ test.serial(
   processFileSmart,
   css`
     body {
-      @apply border-px border-t-lg border-b-0 border-l;
+      @apply border-px border-lg border-0 border-l;
     }
   `,
   {
@@ -140,24 +184,6 @@ test.serial(
       lg: 10,
     },
   },
-);
-
-test.serial(
-  'border-style',
-  processFileSmart,
-  css`
-    body {
-      @apply border-b-solid border-t-dotted border-l-hidden border-r-none;
-    }
-
-    div {
-      @apply border-x-dashed border-y-double;
-    }
-
-    p {
-      @apply border-s-hidden border-e-none;
-    }
-  `,
 );
 
 test.serial(
@@ -172,19 +198,6 @@ test.serial(
     borderRadius: {
       lg: 10,
     },
-  },
-);
-
-test.serial(
-  'pseudo',
-  processFileSmart,
-  css`
-    body {
-      @apply before:grow-2 after:rounded-full;
-    }
-  `,
-  {
-    aspectRatio: {},
   },
 );
 

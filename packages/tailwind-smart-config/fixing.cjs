@@ -22,31 +22,29 @@ function declaration({ selector, properties, value }) {
   ];
 }
 
-exports.featureFixing = plugin(
-  ({ addVariant, addUtilities, variants, corePlugins }) => {
-    addVariant('before', () => {
-      return '&::before';
-    });
+exports.featureFixing = plugin(({ addUtilities, variants, corePlugins }) => {
+  // addVariant('before', () => {
+  //   return '&::before';
+  // });
 
-    addVariant('after', () => {
-      return '&::after';
-    });
+  // addVariant('after', () => {
+  //   return '&::after';
+  // });
 
-    if (corePlugins('borderStyle')) {
-      addUtilities(
-        Object.fromEntries(
-          styles.flatMap((style) =>
-            Object.entries(Sides).map(([key, sides]) =>
-              declaration({
-                selector: `.border-${key}-${style}`,
-                properties: sides.map((side) => `border-${side}-style`),
-                value: style,
-              }),
-            ),
+  if (corePlugins('borderStyle')) {
+    addUtilities(
+      Object.fromEntries(
+        styles.flatMap((style) =>
+          Object.entries(Sides).map(([key, sides]) =>
+            declaration({
+              selector: `.border-${key}-${style}`,
+              properties: sides.map((side) => `border-${side}-style`),
+              value: style,
+            }),
           ),
         ),
-        variants('borderStyle'),
-      );
-    }
-  },
-);
+      ),
+      variants('borderStyle'),
+    );
+  }
+});
