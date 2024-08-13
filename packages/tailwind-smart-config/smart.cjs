@@ -19,18 +19,22 @@ const ems = addUnit(
   'em',
 );
 
-function getSpacing({ step = 0.5, edge = 90, ...rest }) {
+function getSpacing(rem, { step = 0.5, edge = 90, ...rest }) {
   const { 0: __, ...spacing } = Object.fromEntries(
-    Array.from({ length: edge + 1 }).map((_, s) => [s, s * step]),
+    [
+      ...Array.from({ length: edge + 1 }).map((_, s) => [s, s * step]),
+      ...Object.entries(rest),
+    ].map(([k, v]) => [k, typeof v === 'number' ? rem * v : v]),
   );
 
-  return { ...spacing, ...rest };
+  return spacing;
 }
 
 exports.tailwindSmartConfig = plugin.withOptions(
   () => {},
   ({
     unit = 'px',
+    rem = 1,
     borderRadius,
     borderWidth,
     fontSize,
@@ -41,7 +45,7 @@ exports.tailwindSmartConfig = plugin.withOptions(
     aspectRatio,
     dash = '/',
   } = {}) => {
-    const spacing = spacingConfig ? getSpacing(spacingConfig) : undefined;
+    const spacing = spacingConfig ? getSpacing(rem, spacingConfig) : undefined;
 
     const pair = [
       [1, 10],
@@ -166,7 +170,13 @@ exports.tailwindSmartConfig = plugin.withOptions(
       name: 'fontSize',
       setting: fontSize,
       handler: () =>
-        mapObject(addUnit(fontSize, unit), (value, key) => [key, value]),
+        addUnit(
+          mapObject(fontSize, (value, key) => [
+            key,
+            typeof value === 'number' ? value * rem : value,
+          ]),
+          unit,
+        ),
     });
 
     modify({

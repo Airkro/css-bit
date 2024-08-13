@@ -79,6 +79,7 @@ test.serial(
       md: 20,
     },
     unit: 'rpx',
+    rem: 16,
   },
 );
 
@@ -128,6 +129,7 @@ test.serial(
     fontSize: {
       large: 4,
     },
+    rem: 16,
   },
 );
 
