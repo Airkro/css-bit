@@ -88,6 +88,8 @@ exports.tailwindSmartConfig = plugin.withOptions(
       '2pt': '2pt',
       px: `1${pxUnit}`,
       '2px': `2${pxUnit}`,
+      '3px': `3${pxUnit}`,
+      '4px': `4${pxUnit}`,
     };
 
     const io = {
