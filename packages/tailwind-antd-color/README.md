@@ -20,10 +20,10 @@ npm install @css-bit/tailwind-antd-color --save-dev
 
 ## Usage
 
-```cjs
-const { tailwindAntdColors } = require('@css-bit/tailwind-antd-color');
+```mjs
+import { tailwindAntdColors } from '@css-bit/tailwind-antd-color';
 
-module.exports = {
+export default {
   plugins: [
     tailwindAntdColors({
       // color name

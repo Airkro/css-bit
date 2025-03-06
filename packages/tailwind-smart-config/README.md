@@ -20,10 +20,10 @@ npm install @css-bit/tailwind-smart-config --save-dev
 
 ## Usage
 
-```cjs
-const { tailwindSmartConfig } = require('@css-bit/tailwind-smart-config');
+```mjs
+import { tailwindSmartConfig } from '@css-bit/tailwind-smart-config';
 
-module.exports = {
+export default {
   plugins: [tailwindSmartConfig()]
 };
 ```

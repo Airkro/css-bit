@@ -26,49 +26,33 @@
     "version:pin": "syncpack fix-mismatches"
   },
   "devDependencies": {
-    "@ant-design/colors": "^7.1.0",
-    "@bring-it/npm": "^0.5.9",
-    "@nice-move/all-in-base": "^0.2.10",
+    "@ant-design/colors": "^7.2.0",
+    "@bring-it/npm": "^0.6.0",
+    "@nice-move/all-in-base": "^0.4.13",
     "@nice-move/syncpack-config": "^0.2.9",
     "ava": "^6.2.0",
-    "eslint": "^8.57.1",
-    "eslint-plugin-ava": "^14.0.0",
+    "eslint": "^9.21.0",
+    "eslint-plugin-ava": "^15.0.1",
     "fs-chain": "^8.2.4",
-    "garou": "^0.8.1",
-    "nodemon": "^3.1.7",
-    "postcss": "^8.4.49",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.8",
-    "stylelint": "^16.10.0",
-    "syncpack": "^13.0.0",
-    "tailwindcss": "^3.4.14",
-    "typescript": "~5.6.3"
+    "garou": "^0.9.4",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "stylelint": "^16.15.0",
+    "syncpack": "^13.0.2",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.8.2"
   },
   "peerDependencies": {
     "@css-bit/tailwind-antd-color": "workspace:~",
     "@css-bit/tailwind-smart-config": "workspace:~"
   },
-  "packageManager": "pnpm@9.5.0",
+  "packageManager": "pnpm@10.5.2",
   "engines": {
-    "node": ">=18 || ^14.17.0 || ^16.13.0"
+    "node": ">=20.18.0"
   },
   "eslintConfig": {
     "extends": "@nice-move/eslint-config-base"
-  },
-  "nice-move": {
-    "import-groups": [
-      "nice-move-preset",
-      "^@css-bit\\/"
-    ]
-  },
-  "nodemonConfig": {
-    "delay": 2,
-    "exec": "yarn test --verbose",
-    "ext": "*",
-    "watch": [
-      "packages/**",
-      "test/**"
-    ]
   },
   "prettier": "@nice-move/prettier-config",
   "stylelint": {

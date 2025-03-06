@@ -1,7 +1,6 @@
-import test from 'ava';
-
 import { tailwindAntdColors } from '@css-bit/tailwind-antd-color';
 import { featureFixing } from '@css-bit/tailwind-smart-config';
+import test from 'ava';
 
 import { css, processFile, processFileSmart } from './helper/lib.mjs';
 
@@ -88,7 +87,7 @@ test.serial(
   processFileSmart,
   css`
     body {
-      @apply m-2 mt-auto h-px w-0 pb-1/10;
+      @apply m-2 ml-2/5 mt-auto h-px w-0 pb-1/10;
     }
 
     div {

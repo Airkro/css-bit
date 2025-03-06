@@ -1,10 +1,10 @@
-'use strict';
+/* eslint-disable regexp/no-super-linear-backtracking */
 
 function negateValue(io) {
   const value = String(io);
 
   // Flip sign of numbers
-  if (/^[+-]?(\d+|\d*\.\d+)(e[+-]?\d+)?(%|\w+)?$/.test(value)) {
+  if (/^[+-]?(?:\d+|\d*\.\d+)(?:e[+-]?\d+)?(?:%|\w+)?$/.test(value)) {
     return value.replace(/^[+-]?/, (sign) => (sign === '-' ? '' : '-'));
   }
 
@@ -15,16 +15,14 @@ function negateValue(io) {
   return value;
 }
 
-function mapObject(object, callback, filter) {
+export function mapObject(object, callback, filter) {
   const io = Object.entries(object);
   const tmp = filter ? io.filter(([key, value]) => filter(value, key)) : io;
 
   return Object.fromEntries(tmp.map(([key, value]) => callback(value, key)));
 }
 
-exports.mapObject = mapObject;
-
-exports.addUnit = function addUnit(object, unit) {
+export const addUnit = function addUnit(object, unit) {
   return mapObject(object, (value, key) => [
     key,
     typeof value === 'number' && value !== 0 && value !== '0'
@@ -33,15 +31,15 @@ exports.addUnit = function addUnit(object, unit) {
   ]);
 };
 
-exports.negative = function negative(object) {
+export function negative(object) {
   return mapObject(
     object,
     (value, key) => [`-${key}`, negateValue(value)],
     (value) => value !== '0' && value !== 0,
   );
-};
+}
 
-exports.withOpacityValue = function withOpacityValue(variable) {
+export function withOpacityValue(variable) {
   return ({ opacityValue }) => {
     if (opacityValue === undefined) {
       return variable;
@@ -49,4 +47,4 @@ exports.withOpacityValue = function withOpacityValue(variable) {
 
     return `rgb(${variable} / ${opacityValue})`;
   };
-};
+}

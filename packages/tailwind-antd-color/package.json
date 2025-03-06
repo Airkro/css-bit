@@ -1,6 +1,6 @@
 {
   "name": "@css-bit/tailwind-antd-color",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Use `@ant-design/colors` as `tailwind colors default`",
   "license": "MIT",
   "author": {
@@ -26,15 +26,16 @@
   "bugs": {
     "url": "https://github.com/airkro/css-bit/issues"
   },
-  "main": "index.cjs",
+  "main": "index.mjs",
+  "type": "module",
   "dependencies": {
-    "@ant-design/colors": "^7.1.0"
+    "@ant-design/colors": "^7.2.0"
   },
   "peerDependencies": {
-    "tailwindcss": "^3.4.4"
+    "tailwindcss": "^3.4.17"
   },
   "engines": {
-    "node": ">=18 || ^14.17.0 || ^16.13.0"
+    "node": ">=20.18.0"
   },
   "publishConfig": {
     "access": "public",

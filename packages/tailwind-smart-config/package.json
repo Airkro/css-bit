@@ -1,6 +1,6 @@
 {
   "name": "@css-bit/tailwind-smart-config",
-  "version": "0.9.4",
+  "version": "0.10.0",
   "description": "Smart tailwind configuration modifier",
   "license": "MIT",
   "author": {
@@ -24,12 +24,13 @@
   "bugs": {
     "url": "https://github.com/airkro/css-bit/issues"
   },
-  "main": "index.cjs",
+  "main": "index.mjs",
+  "type": "module",
   "peerDependencies": {
-    "tailwindcss": "^3.4.4"
+    "tailwindcss": "^3.4.17"
   },
   "engines": {
-    "node": ">=18 || ^14.17.0 || ^16.13.0"
+    "node": ">=20.18.0"
   },
   "publishConfig": {
     "access": "public",

@@ -1,10 +1,8 @@
-'use strict';
+import plugin from 'tailwindcss/plugin.js';
 
-const { presetPalettes, generate } = require('@ant-design/colors');
+import { generate, presetPalettes } from '@ant-design/colors';
 
 delete presetPalettes.grey;
-
-const plugin = require('tailwindcss/plugin');
 
 function mapObject(object, mapper) {
   return Object.fromEntries(
@@ -36,7 +34,7 @@ function grayAble(grey) {
   return typeof grey === 'number' && grey % 2 === 0 && grey >= 0 && grey <= 255;
 }
 
-const tailwindAntdColors = plugin.withOptions(
+export const tailwindAntdColors = plugin.withOptions(
   () => {
     return () => {};
   },
@@ -56,5 +54,3 @@ const tailwindAntdColors = plugin.withOptions(
     return { theme: { colors } };
   },
 );
-
-module.exports = { tailwindAntdColors };

@@ -1,7 +1,6 @@
-'use strict';
+import plugin from 'tailwindcss/plugin.js';
 
-const plugin = require('tailwindcss/plugin');
-const { negative, addUnit, mapObject, withOpacityValue } = require('./lib.cjs');
+import { addUnit, mapObject, negative, withOpacityValue } from './lib.mjs';
 
 function toPercent(a, b = 1) {
   const io = (a / b) * 100;
@@ -30,7 +29,7 @@ function getSpacing(rem, { step = 0.5, edge = 90, ...rest }) {
   return spacing;
 }
 
-exports.tailwindSmartConfig = plugin.withOptions(
+export const tailwindSmartConfig = plugin.withOptions(
   () => {},
   ({
     unit = 'px',
@@ -59,6 +58,10 @@ exports.tailwindSmartConfig = plugin.withOptions(
       [3, 4],
       [3, 5],
       [4, 5],
+      [2, 7],
+      [3, 7],
+      [4, 7],
+      [5, 7],
       [7, 10],
       [9, 10],
       [9, 16],
