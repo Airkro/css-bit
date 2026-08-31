@@ -2,8 +2,6 @@ import plugin from 'tailwindcss/plugin.js';
 
 import { generate, presetPalettes } from '@ant-design/colors';
 
-delete presetPalettes.grey;
-
 function mapObject(object, mapper) {
   return Object.fromEntries(
     Object.entries(object).map(([key, value]) => mapper(key, value)),
@@ -30,27 +28,42 @@ function generateGrey(value) {
   return io;
 }
 
-function grayAble(grey) {
+function isGrayAble(grey) {
   return typeof grey === 'number' && grey % 2 === 0 && grey >= 0 && grey <= 255;
 }
 
+// This plugin registers no utilities, but the handler must still be a function:
+// Tailwind v4 calls it unconditionally and crashes when it is `undefined`.
+function emptyHandler() {}
+
+function noopHandler() {
+  return emptyHandler;
+}
+
 export const tailwindAntdColors = plugin.withOptions(
-  () => {
-    return () => {};
-  },
+  noopHandler,
   ({ primary, grey, 10: ten = true } = {}) => {
+    delete presetPalettes.grey;
+
     const antdColors = mapObject(presetPalettes, (name, item) => [
       name,
       picker(item, { ten }),
     ]);
     const colors = {
       ...antdColors,
-      ...(grayAble(grey) && {
+      ...(isGrayAble(grey) && {
         grey: picker(generateGrey(grey), { ten }),
       }),
       ...(antdColors[primary] && { primary: antdColors[primary] }),
     };
 
-    return { theme: { colors } };
+    return { theme: { extend: { colors } } };
   },
 );
+
+// `tailwindcss/plugin.js` ships a compatible shim in both v3 and v4, so a single
+// `plugin.withOptions(...)` shape works with both engines. The default export is
+// what Tailwind v4's `@plugin` directive loads, so it is required despite the
+// general preference for named exports.
+// eslint-disable-next-line import-x/no-default-export
+export default tailwindAntdColors;

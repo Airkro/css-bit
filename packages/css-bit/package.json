@@ -14,7 +14,7 @@
   "homepage": "https://github.com/airkro/css-bit/tree/master/packages/css-bit",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airkro/css-bit.git",
+    "url": "git+https://github.com/airkro/css-bit.git",
     "directory": "packages/css-bit"
   },
   "bugs": {
@@ -26,7 +26,7 @@
   ],
   "type": "module",
   "engines": {
-    "node": ">=20.18.0"
+    "node": ">=24.0.0"
   },
   "publishConfig": {
     "access": "public",

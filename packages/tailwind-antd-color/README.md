@@ -20,6 +20,8 @@ npm install @css-bit/tailwind-antd-color --save-dev
 
 ## Usage
 
+Tailwind v3:
+
 ```mjs
 import { tailwindAntdColors } from '@css-bit/tailwind-antd-color';
 
@@ -36,6 +38,25 @@ export default {
   ]
 };
 ```
+
+Tailwind v4: register the plugin via the `@plugin` directive in your CSS entry file.
+
+```css
+@import 'tailwindcss';
+
+@plugin '@css-bit/tailwind-antd-color' {
+  primary: green;
+  grey: 174;
+  10: false;
+}
+```
+
+> **Breaking change in 0.5.0:** the antd colors are now merged into Tailwind's
+> default palette via `theme.extend.colors` instead of replacing it via
+> `theme.colors`. Tailwind v4 ignores a plugin's `theme.colors` (it only honors
+> `theme.extend.colors`), so this was required for v4 support. As a result the
+> built-in colors (`red`, `blue`, `green`, ...) now remain available alongside the
+> antd colors on **both** v3 and v4 — previously they were replaced entirely.
 
 ## Tips
 

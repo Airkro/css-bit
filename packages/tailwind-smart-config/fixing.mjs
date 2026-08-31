@@ -30,21 +30,35 @@ export const featureFixing = plugin(
     //   return '&::after';
     // });
 
-    if (corePlugins('borderStyle')) {
-      addUtilities(
-        Object.fromEntries(
-          styles.flatMap((style) =>
-            Object.entries(Sides).map(([key, sides]) =>
-              declaration({
-                selector: `.border-${key}-${style}`,
-                properties: sides.map((side) => `border-${side}-style`),
-                value: style,
-              }),
-            ),
-          ),
+    // `corePlugins` and `variants` are Tailwind v3-only API. v4 exposes neither:
+    // core plugins cannot be disabled from a plugin there, and utilities are
+    // variant-agnostic, so every registered utility automatically works with
+    // all variants. Detect them instead of assuming they exist.
+    if (corePlugins && !corePlugins('borderStyle')) {
+      return;
+    }
+
+    const utilities = Object.fromEntries(
+      styles.flatMap((style) =>
+        Object.entries(Sides).map(([key, sides]) =>
+          declaration({
+            selector: `.border-${key}-${style}`,
+            properties: sides.map((side) => `border-${side}-style`),
+            value: style,
+          }),
         ),
-        variants('borderStyle'),
-      );
+      ),
+    );
+
+    if (variants) {
+      addUtilities(utilities, variants('borderStyle'));
+    } else {
+      addUtilities(utilities);
     }
   },
 );
+
+// Tailwind v4's `@plugin` directive needs a default export. This plugin takes
+// no options, so it works with both `@plugin` (v4) and `plugins: []` (v3).
+// eslint-disable-next-line import-x/no-default-export
+export default featureFixing;

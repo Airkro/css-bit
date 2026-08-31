@@ -5,15 +5,12 @@ import { addUnit, mapObject, negative, withOpacityValue } from './lib.mjs';
 function toPercent(a, b = 1) {
   const io = (a / b) * 100;
 
-  return `${Number.isInteger(io) ? io : io.toFixed(5)}%`;
+  return `${Number.isSafeInteger(io) ? io : io.toFixed(5)}%`;
 }
 
 const ems = addUnit(
   Object.fromEntries(
-    Array.from({ length: 39 })
-      .fill(0)
-      .map((_, i) => `${i + 1}em`)
-      .map((i) => [i, i]),
+    Array.from({ length: 39 }, (_, i) => [`${i + 1}em`, `${i + 1}em`]),
   ),
   'em',
 );
@@ -21,7 +18,7 @@ const ems = addUnit(
 function getSpacing(rem, { step = 0.5, edge = 90, ...rest }) {
   const { 0: __, ...spacing } = Object.fromEntries(
     [
-      ...Array.from({ length: edge + 1 }).map((_, s) => [s, s * step]),
+      ...Array.from({ length: edge + 1 }, (_, s) => [s, s * step]),
       ...Object.entries(rest),
     ].map(([k, v]) => [k, typeof v === 'number' ? rem * v : v]),
   );
@@ -29,8 +26,32 @@ function getSpacing(rem, { step = 0.5, edge = 90, ...rest }) {
   return spacing;
 }
 
+// `corePlugins` only exists on Tailwind v3's plugin API, so its absence
+// identifies v4. A few utilities this plugin adds through the theme cannot be
+// expressed that way in v4, and are registered explicitly instead.
+function v4Handler({ addUtilities, theme, corePlugins }) {
+  if (corePlugins) {
+    return;
+  }
+
+  const extra = {};
+
+  // v4's built-in `text-*` utilities accept only a fixed set of colour
+  // keywords and reject `initial`, even though it is valid CSS.
+  if (theme('colors')?.initial) {
+    extra['.text-initial'] = { color: 'initial' };
+  }
+
+  if (Object.keys(extra).length > 0) {
+    addUtilities(extra);
+  }
+}
+
 export const tailwindSmartConfig = plugin.withOptions(
-  () => {},
+  // The plugin function must return a handler (even an empty one): Tailwind v4
+  // calls `handler` unconditionally, so returning `undefined` crashes with
+  // "is not a function" while v3 silently tolerates it.
+  () => v4Handler,
   ({
     unit = 'px',
     rem = 1,
@@ -166,7 +187,7 @@ export const tailwindSmartConfig = plugin.withOptions(
       handler: () => ({
         ...zeroNone,
         ...clock,
-        ...(unit === 'em' ? undefined : ems),
+        ...(unit !== 'em' && ems),
         ...addUnit(spacing, unit),
       }),
     });
@@ -250,3 +271,8 @@ export const tailwindSmartConfig = plugin.withOptions(
     return io;
   },
 );
+
+// `tailwindcss/plugin.js` ships a compatible shim in both v3 and v4: `plugin(fn)`
+// yields `{ handler, config }` and `plugin.withOptions(fn, cfg)` yields an
+// options function tagged with `__isOptionsFunction`. The shapes are recognised
+// by both engines, so no bridging between them is needed.

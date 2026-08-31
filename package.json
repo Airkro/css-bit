@@ -10,52 +10,55 @@
   "homepage": "https://github.com/airkro/css-bit",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airkro/css-bit.git"
+    "url": "git+https://github.com/airkro/css-bit.git"
   },
   "bugs": {
     "url": "https://github.com/airkro/css-bit/issues"
   },
+  "type": "module",
   "scripts": {
+    "fmt:prettier": "prettier -w .",
     "generate": "node config/generate.mjs",
+    "lint:eslint": "eslint . --quiet --fix --concurrency=auto",
     "lint:staged": "nice-move lint staged",
-    "lint:type": "tsc --noEmit",
+    "lint:type": "tsc -p tsconfig.json",
     "lint:version": "syncpack lint",
     "prepare": "nice-move git hooks",
-    "snapshot": "ava --fail-fast -u -w",
+    "snapshot": "ava --fail-fast -u",
     "test": "ava --fail-fast",
-    "version:pin": "syncpack fix-mismatches"
+    "version:pin": "syncpack fix"
   },
   "devDependencies": {
-    "@ant-design/colors": "^7.2.0",
-    "@bring-it/npm": "^0.6.0",
-    "@nice-move/all-in-base": "^0.4.13",
-    "@nice-move/syncpack-config": "^0.2.9",
-    "ava": "^6.2.0",
-    "eslint": "^9.21.0",
-    "eslint-plugin-ava": "^15.0.1",
+    "@ant-design/colors": "^8.0.1",
+    "@bring-it/npm": "^0.9.6",
+    "@nice-move/all-in-base": "^0.9.0",
+    "@nice-move/syncpack-config": "^0.6.2",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.4.0",
+    "ava": "^8.0.1",
+    "eslint": "^10.9.1",
     "fs-chain": "^8.2.4",
-    "garou": "^0.9.4",
-    "postcss": "^8.5.3",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "stylelint": "^16.15.0",
-    "syncpack": "^13.0.2",
-    "tailwindcss": "^3.4.17",
-    "typescript": "~5.8.2"
+    "garou": "^0.9.21",
+    "postcss": "^8.5.26",
+    "prettier": "~3.9.6",
+    "syncpack": "^15.3.3",
+    "tailwindcss": "^4.3.3",
+    "tailwindcss-v3": "npm:tailwindcss@^3.4.19",
+    "typescript": "~6.0.3"
   },
   "peerDependencies": {
-    "@css-bit/tailwind-antd-color": "workspace:~",
-    "@css-bit/tailwind-smart-config": "workspace:~"
+    "@css-bit/tailwind-antd-color": "workspace:^",
+    "@css-bit/tailwind-smart-config": "workspace:^"
   },
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.34.5",
   "engines": {
-    "node": ">=20.18.0"
+    "node": ">=24.0.0",
+    "pnpm": "^10.34.5"
   },
-  "eslintConfig": {
-    "extends": "@nice-move/eslint-config-base"
+  "ava": {
+    "extensions": [
+      "mts"
+    ]
   },
-  "prettier": "@nice-move/prettier-config",
-  "stylelint": {
-    "extends": "@nice-move/stylelint-config"
-  }
+  "prettier": "@nice-move/all-in-base/prettier"
 }

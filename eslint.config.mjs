@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import base from '@nice-move/eslint-config-base';
+import base from '@nice-move/all-in-base/eslint';
 
 export default [
   ...base,
